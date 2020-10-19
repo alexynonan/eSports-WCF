@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="eSportsModelStoreContainer" CdmEntityContainer="eSportsEntities">
+    <EntitySetMapping Name="DETALLE_EQUIPO">
+      <EntityTypeMapping TypeName="eSportsModel.DETALLE_EQUIPO">
+        <MappingFragment StoreEntitySet="DETALLE_EQUIPO">
+          <ScalarProperty Name="IdEquipo" ColumnName="IdEquipo" />
+          <ScalarProperty Name="IdTorneo" ColumnName="IdTorneo" />
+          <ScalarProperty Name="Victorias" ColumnName="Victorias" />
+          <ScalarProperty Name="Derrotas" ColumnName="Derrotas" />
+          <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETALLE_JUGADOR_PARTIDA">
+      <EntityTypeMapping TypeName="eSportsModel.DETALLE_JUGADOR_PARTIDA">
+        <MappingFragment StoreEntitySet="DETALLE_JUGADOR_PARTIDA">
+          <ScalarProperty Name="IdJugador" ColumnName="IdJugador" />
+          <ScalarProperty Name="IdEquipo" ColumnName="IdEquipo" />
+          <ScalarProperty Name="IdPartida" ColumnName="IdPartida" />
+          <ScalarProperty Name="IdHeroe" ColumnName="IdHeroe" />
+          <ScalarProperty Name="Kills" ColumnName="Kills" />
+          <ScalarProperty Name="Deaths" ColumnName="Deaths" />
+          <ScalarProperty Name="Assists" ColumnName="Assists" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETALLE_PERSONAL">
+      <EntityTypeMapping TypeName="eSportsModel.DETALLE_PERSONAL">
+        <MappingFragment StoreEntitySet="DETALLE_PERSONAL">
+          <ScalarProperty Name="IdPersonal" ColumnName="IdPersonal" />
+          <ScalarProperty Name="IdTorneo" ColumnName="IdTorneo" />
+          <ScalarProperty Name="FechaInicioContrato" ColumnName="FechaInicioContrato" />
+          <ScalarProperty Name="FechaFinContrato" ColumnName="FechaFinContrato" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EQUIPO">
+      <EntityTypeMapping TypeName="eSportsModel.EQUIPO">
+        <MappingFragment StoreEntitySet="EQUIPO">
+          <ScalarProperty Name="IdEquipo" ColumnName="IdEquipo" />
+          <ScalarProperty Name="NomEquipo" ColumnName="NomEquipo" />
+          <ScalarProperty Name="PaisEquipo" ColumnName="PaisEquipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HEROE">
+      <EntityTypeMapping TypeName="eSportsModel.HEROE">
+        <MappingFragment StoreEntitySet="HEROE">
+          <ScalarProperty Name="IdHeroe" ColumnName="IdHeroe" />
+          <ScalarProperty Name="NomHeroe" ColumnName="NomHeroe" />
+          <ScalarProperty Name="Atributo" ColumnName="Atributo" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Complejidad" ColumnName="Complejidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JUEGO">
+      <EntityTypeMapping TypeName="eSportsModel.JUEGO">
+        <MappingFragment StoreEntitySet="JUEGO">
+          <ScalarProperty Name="IdJuego" ColumnName="IdJuego" />
+          <ScalarProperty Name="NomJuego" ColumnName="NomJuego" />
+          <ScalarProperty Name="DesaJuego" ColumnName="DesaJuego" />
+          <ScalarProperty Name="FechaJuego" ColumnName="FechaJuego" />
+          <ScalarProperty Name="GeneJuego" ColumnName="GeneJuego" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JUGADOR">
+      <EntityTypeMapping TypeName="eSportsModel.JUGADOR">
+        <MappingFragment StoreEntitySet="JUGADOR">
+          <ScalarProperty Name="IdJugador" ColumnName="IdJugador" />
+          <ScalarProperty Name="ApeJugador" ColumnName="ApeJugador" />
+          <ScalarProperty Name="NomJugador" ColumnName="NomJugador" />
+          <ScalarProperty Name="NickJugador" ColumnName="NickJugador" />
+          <ScalarProperty Name="EdadJugador" ColumnName="EdadJugador" />
+          <ScalarProperty Name="PaisJugador" ColumnName="PaisJugador" />
+          <ScalarProperty Name="CapJugador" ColumnName="CapJugador" />
+          <ScalarProperty Name="RolJugador" ColumnName="RolJugador" />
+          <ScalarProperty Name="IdEquipo" ColumnName="IdEquipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PARTIDA">
+      <EntityTypeMapping TypeName="eSportsModel.PARTIDA">
+        <MappingFragment StoreEntitySet="PARTIDA">
+          <ScalarProperty Name="IdPartida" ColumnName="IdPartida" />
+          <ScalarProperty Name="RoundPartida" ColumnName="RoundPartida" />
+          <ScalarProperty Name="FechaPartida" ColumnName="FechaPartida" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="vsTeam" ColumnName="vsTeam" />
+          <ScalarProperty Name="IdTorneo" ColumnName="IdTorneo" />
+          <ScalarProperty Name="TeamWinner" ColumnName="TeamWinner" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERSONAL">
+      <EntityTypeMapping TypeName="eSportsModel.PERSONAL">
+        <MappingFragment StoreEntitySet="PERSONAL">
+          <ScalarProperty Name="IdPersonal" ColumnName="IdPersonal" />
+          <ScalarProperty Name="ApePersonal" ColumnName="ApePersonal" />
+          <ScalarProperty Name="NomPersonal" ColumnName="NomPersonal" />
+          <ScalarProperty Name="PaisPersonal" ColumnName="PaisPersonal" />
+          <ScalarProperty Name="CargoPersonal" ColumnName="CargoPersonal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRIZEPOOL">
+      <EntityTypeMapping TypeName="eSportsModel.PRIZEPOOL">
+        <MappingFragment StoreEntitySet="PRIZEPOOL">
+          <ScalarProperty Name="IdPrizepool" ColumnName="IdPrizepool" />
+          <ScalarProperty Name="IdTorneo" ColumnName="IdTorneo" />
+          <ScalarProperty Name="PrizepoolTotal" ColumnName="PrizepoolTotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PUESTO_PRIZEPOOL">
+      <EntityTypeMapping TypeName="eSportsModel.PUESTO_PRIZEPOOL">
+        <MappingFragment StoreEntitySet="PUESTO_PRIZEPOOL">
+          <ScalarProperty Name="IdPuesto" ColumnName="IdPuesto" />
+          <ScalarProperty Name="IdPrizepool" ColumnName="IdPrizepool" />
+          <ScalarProperty Name="Porcentaje" ColumnName="Porcentaje" />
+          <ScalarProperty Name="GananciaEquipo" ColumnName="GananciaEquipo" />
+          <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TORNEO">
+      <EntityTypeMapping TypeName="eSportsModel.TORNEO">
+        <MappingFragment StoreEntitySet="TORNEO">
+          <ScalarProperty Name="IdTorneo" ColumnName="IdTorneo" />
+          <ScalarProperty Name="NomTorneo" ColumnName="NomTorneo" />
+          <ScalarProperty Name="OrgTorneo" ColumnName="OrgTorneo" />
+          <ScalarProperty Name="PaisTorneo" ColumnName="PaisTorneo" />
+          <ScalarProperty Name="LugarTorneo" ColumnName="LugarTorneo" />
+          <ScalarProperty Name="FechaInicioTorneo" ColumnName="FechaInicioTorneo" />
+          <ScalarProperty Name="FechaFinTorneo" ColumnName="FechaFinTorneo" />
+          <ScalarProperty Name="IdJuego" ColumnName="IdJuego" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_RankingKillsPorPartida">
+      <EntityTypeMapping TypeName="eSportsModel.vw_RankingKillsPorPartida">
+        <MappingFragment StoreEntitySet="vw_RankingKillsPorPartida">
+          <ScalarProperty Name="IdPartida" ColumnName="IdPartida" />
+          <ScalarProperty Name="RoundPartida" ColumnName="RoundPartida" />
+          <ScalarProperty Name="NickJugador" ColumnName="NickJugador" />
+          <ScalarProperty Name="NomHeroe" ColumnName="NomHeroe" />
+          <ScalarProperty Name="TotalKills" ColumnName="TotalKills" />
+          <ScalarProperty Name="TotalDeaths" ColumnName="TotalDeaths" />
+          <ScalarProperty Name="TotalAssists" ColumnName="TotalAssists" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_KillsEquipoPorPartida" FunctionName="eSportsModel.Store.usp_KillsEquipoPorPartida">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="eSportsModel.usp_KillsEquipoPorPartida_Result">
+          <ScalarProperty Name="Enfrentamiento" ColumnName="Enfrentamiento" />
+          <ScalarProperty Name="NomEquipo" ColumnName="NomEquipo" />
+          <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

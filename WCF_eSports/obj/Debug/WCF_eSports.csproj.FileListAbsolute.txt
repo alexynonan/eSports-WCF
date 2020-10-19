@@ -1,0 +1,12 @@
+E:\Programs\Visual Studio 2017\Dae2_Proyecto\eSportsWCF\WCF_eSports\bin\Debug\WCF_eSports.dll.config
+E:\Programs\Visual Studio 2017\Dae2_Proyecto\eSportsWCF\WCF_eSports\bin\Debug\WCF_eSports.dll
+E:\Programs\Visual Studio 2017\Dae2_Proyecto\eSportsWCF\WCF_eSports\bin\Debug\WCF_eSports.pdb
+E:\Programs\Visual Studio 2017\Dae2_Proyecto\eSportsWCF\WCF_eSports\bin\Debug\EntityFramework.dll
+E:\Programs\Visual Studio 2017\Dae2_Proyecto\eSportsWCF\WCF_eSports\bin\Debug\EntityFramework.SqlServer.dll
+E:\Programs\Visual Studio 2017\Dae2_Proyecto\eSportsWCF\WCF_eSports\bin\Debug\EntityFramework.xml
+E:\Programs\Visual Studio 2017\Dae2_Proyecto\eSportsWCF\WCF_eSports\bin\Debug\EntityFramework.SqlServer.xml
+E:\Programs\Visual Studio 2017\Dae2_Proyecto\eSportsWCF\WCF_eSports\obj\Debug\WCF_eSports.csprojAssemblyReference.cache
+E:\Programs\Visual Studio 2017\Dae2_Proyecto\eSportsWCF\WCF_eSports\obj\Debug\WCF_eSports.csproj.CoreCompileInputs.cache
+E:\Programs\Visual Studio 2017\Dae2_Proyecto\eSportsWCF\WCF_eSports\obj\Debug\WCF_eSports.csproj.CopyComplete
+E:\Programs\Visual Studio 2017\Dae2_Proyecto\eSportsWCF\WCF_eSports\obj\Debug\WCF_eSports.dll
+E:\Programs\Visual Studio 2017\Dae2_Proyecto\eSportsWCF\WCF_eSports\obj\Debug\WCF_eSports.pdb

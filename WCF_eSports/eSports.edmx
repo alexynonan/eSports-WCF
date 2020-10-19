@@ -1,0 +1,1080 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="eSportsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DETALLE_EQUIPO">
+          <Key>
+            <PropertyRef Name="IdEquipo" />
+            <PropertyRef Name="IdTorneo" />
+          </Key>
+          <Property Name="IdEquipo" Type="int" Nullable="false" />
+          <Property Name="IdTorneo" Type="int" Nullable="false" />
+          <Property Name="Victorias" Type="int" Nullable="false" />
+          <Property Name="Derrotas" Type="int" Nullable="false" />
+          <Property Name="Puesto" Type="int" />
+        </EntityType>
+        <EntityType Name="DETALLE_JUGADOR_PARTIDA">
+          <Key>
+            <PropertyRef Name="IdJugador" />
+            <PropertyRef Name="IdEquipo" />
+            <PropertyRef Name="IdPartida" />
+            <PropertyRef Name="IdHeroe" />
+          </Key>
+          <Property Name="IdJugador" Type="int" Nullable="false" />
+          <Property Name="IdEquipo" Type="int" Nullable="false" />
+          <Property Name="IdPartida" Type="int" Nullable="false" />
+          <Property Name="IdHeroe" Type="int" Nullable="false" />
+          <Property Name="Kills" Type="int" Nullable="false" />
+          <Property Name="Deaths" Type="int" Nullable="false" />
+          <Property Name="Assists" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DETALLE_PERSONAL">
+          <Key>
+            <PropertyRef Name="IdPersonal" />
+            <PropertyRef Name="IdTorneo" />
+          </Key>
+          <Property Name="IdPersonal" Type="int" Nullable="false" />
+          <Property Name="IdTorneo" Type="int" Nullable="false" />
+          <Property Name="FechaInicioContrato" Type="datetime" Nullable="false" />
+          <Property Name="FechaFinContrato" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EQUIPO">
+          <Key>
+            <PropertyRef Name="IdEquipo" />
+          </Key>
+          <Property Name="IdEquipo" Type="int" Nullable="false" />
+          <Property Name="NomEquipo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PaisEquipo" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HEROE">
+          <Key>
+            <PropertyRef Name="IdHeroe" />
+          </Key>
+          <Property Name="IdHeroe" Type="int" Nullable="false" />
+          <Property Name="NomHeroe" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Atributo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Complejidad" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JUEGO">
+          <Key>
+            <PropertyRef Name="IdJuego" />
+          </Key>
+          <Property Name="IdJuego" Type="int" Nullable="false" />
+          <Property Name="NomJuego" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="DesaJuego" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="FechaJuego" Type="datetime" Nullable="false" />
+          <Property Name="GeneJuego" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JUGADOR">
+          <Key>
+            <PropertyRef Name="IdJugador" />
+          </Key>
+          <Property Name="IdJugador" Type="int" Nullable="false" />
+          <Property Name="ApeJugador" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="NomJugador" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="NickJugador" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="EdadJugador" Type="int" />
+          <Property Name="PaisJugador" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="CapJugador" Type="char" MaxLength="1" />
+          <Property Name="RolJugador" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="IdEquipo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PARTIDA">
+          <Key>
+            <PropertyRef Name="IdPartida" />
+          </Key>
+          <Property Name="IdPartida" Type="int" Nullable="false" />
+          <Property Name="RoundPartida" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FechaPartida" Type="datetime" Nullable="false" />
+          <Property Name="Team" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Score" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="vsTeam" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="IdTorneo" Type="int" Nullable="false" />
+          <Property Name="TeamWinner" Type="int" />
+        </EntityType>
+        <EntityType Name="PERSONAL">
+          <Key>
+            <PropertyRef Name="IdPersonal" />
+          </Key>
+          <Property Name="IdPersonal" Type="int" Nullable="false" />
+          <Property Name="ApePersonal" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="NomPersonal" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PaisPersonal" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="CargoPersonal" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRIZEPOOL">
+          <Key>
+            <PropertyRef Name="IdPrizepool" />
+          </Key>
+          <Property Name="IdPrizepool" Type="int" Nullable="false" />
+          <Property Name="IdTorneo" Type="int" Nullable="false" />
+          <Property Name="PrizepoolTotal" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PUESTO_PRIZEPOOL">
+          <Key>
+            <PropertyRef Name="IdPuesto" />
+          </Key>
+          <Property Name="IdPuesto" Type="int" Nullable="false" />
+          <Property Name="IdPrizepool" Type="int" Nullable="false" />
+          <Property Name="Porcentaje" Type="int" Nullable="false" />
+          <Property Name="GananciaEquipo" Type="money" Nullable="false" />
+          <Property Name="Puesto" Type="int" />
+        </EntityType>
+        <EntityType Name="TORNEO">
+          <Key>
+            <PropertyRef Name="IdTorneo" />
+          </Key>
+          <Property Name="IdTorneo" Type="int" Nullable="false" />
+          <Property Name="NomTorneo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="OrgTorneo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PaisTorneo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="LugarTorneo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="FechaInicioTorneo" Type="datetime" Nullable="false" />
+          <Property Name="FechaFinTorneo" Type="datetime" Nullable="false" />
+          <Property Name="IdJuego" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'eSports.dbo.Usuario' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="Usuario">
+          <Property Name="Usuario" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'eSports.dbo.vw_RankingKillsPorPartida' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="vw_RankingKillsPorPartida">
+          <Key>
+            <PropertyRef Name="IdPartida" />
+            <PropertyRef Name="RoundPartida" />
+            <PropertyRef Name="NickJugador" />
+            <PropertyRef Name="NomHeroe" />
+          </Key>
+          <Property Name="IdPartida" Type="int" Nullable="false" />
+          <Property Name="RoundPartida" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="NickJugador" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="NomHeroe" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TotalKills" Type="int" />
+          <Property Name="TotalDeaths" Type="int" />
+          <Property Name="TotalAssists" Type="int" />
+        </EntityType>
+        <Association Name="FK__DETALLE_E__IdEqu__5165187F">
+          <End Role="EQUIPO" Type="Self.EQUIPO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DETALLE_EQUIPO" Type="Self.DETALLE_EQUIPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EQUIPO">
+              <PropertyRef Name="IdEquipo" />
+            </Principal>
+            <Dependent Role="DETALLE_EQUIPO">
+              <PropertyRef Name="IdEquipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_E__IdTor__52593CB8">
+          <End Role="TORNEO" Type="Self.TORNEO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DETALLE_EQUIPO" Type="Self.DETALLE_EQUIPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TORNEO">
+              <PropertyRef Name="IdTorneo" />
+            </Principal>
+            <Dependent Role="DETALLE_EQUIPO">
+              <PropertyRef Name="IdTorneo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_J__IdEqu__5BE2A6F2">
+          <End Role="EQUIPO" Type="Self.EQUIPO" Multiplicity="1" />
+          <End Role="DETALLE_JUGADOR_PARTIDA" Type="Self.DETALLE_JUGADOR_PARTIDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EQUIPO">
+              <PropertyRef Name="IdEquipo" />
+            </Principal>
+            <Dependent Role="DETALLE_JUGADOR_PARTIDA">
+              <PropertyRef Name="IdEquipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_J__IdHer__571DF1D5">
+          <End Role="HEROE" Type="Self.HEROE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DETALLE_JUGADOR_PARTIDA" Type="Self.DETALLE_JUGADOR_PARTIDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HEROE">
+              <PropertyRef Name="IdHeroe" />
+            </Principal>
+            <Dependent Role="DETALLE_JUGADOR_PARTIDA">
+              <PropertyRef Name="IdHeroe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_J__IdJug__5441852A">
+          <End Role="JUGADOR" Type="Self.JUGADOR" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DETALLE_JUGADOR_PARTIDA" Type="Self.DETALLE_JUGADOR_PARTIDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JUGADOR">
+              <PropertyRef Name="IdJugador" />
+            </Principal>
+            <Dependent Role="DETALLE_JUGADOR_PARTIDA">
+              <PropertyRef Name="IdJugador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_J__IdPar__5629CD9C">
+          <End Role="PARTIDA" Type="Self.PARTIDA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DETALLE_JUGADOR_PARTIDA" Type="Self.DETALLE_JUGADOR_PARTIDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PARTIDA">
+              <PropertyRef Name="IdPartida" />
+            </Principal>
+            <Dependent Role="DETALLE_JUGADOR_PARTIDA">
+              <PropertyRef Name="IdPartida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_P__IdPer__4F7CD00D">
+          <End Role="PERSONAL" Type="Self.PERSONAL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DETALLE_PERSONAL" Type="Self.DETALLE_PERSONAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONAL">
+              <PropertyRef Name="IdPersonal" />
+            </Principal>
+            <Dependent Role="DETALLE_PERSONAL">
+              <PropertyRef Name="IdPersonal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_P__IdTor__5070F446">
+          <End Role="TORNEO" Type="Self.TORNEO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DETALLE_PERSONAL" Type="Self.DETALLE_PERSONAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TORNEO">
+              <PropertyRef Name="IdTorneo" />
+            </Principal>
+            <Dependent Role="DETALLE_PERSONAL">
+              <PropertyRef Name="IdTorneo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JUGADOR__IdEquip__4E88ABD4">
+          <End Role="EQUIPO" Type="Self.EQUIPO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="JUGADOR" Type="Self.JUGADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EQUIPO">
+              <PropertyRef Name="IdEquipo" />
+            </Principal>
+            <Dependent Role="JUGADOR">
+              <PropertyRef Name="IdEquipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PARTIDA__IdTorne__534D60F1">
+          <End Role="TORNEO" Type="Self.TORNEO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PARTIDA" Type="Self.PARTIDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TORNEO">
+              <PropertyRef Name="IdTorneo" />
+            </Principal>
+            <Dependent Role="PARTIDA">
+              <PropertyRef Name="IdTorneo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PARTIDA__TeamWin__114A936A">
+          <End Role="EQUIPO" Type="Self.EQUIPO" Multiplicity="0..1" />
+          <End Role="PARTIDA" Type="Self.PARTIDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EQUIPO">
+              <PropertyRef Name="IdEquipo" />
+            </Principal>
+            <Dependent Role="PARTIDA">
+              <PropertyRef Name="TeamWinner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRIZEPOOL__IdTor__5812160E">
+          <End Role="TORNEO" Type="Self.TORNEO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PRIZEPOOL" Type="Self.PRIZEPOOL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TORNEO">
+              <PropertyRef Name="IdTorneo" />
+            </Principal>
+            <Dependent Role="PRIZEPOOL">
+              <PropertyRef Name="IdTorneo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PUESTO_PR__IdPri__59063A47">
+          <End Role="PRIZEPOOL" Type="Self.PRIZEPOOL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PUESTO_PRIZEPOOL" Type="Self.PUESTO_PRIZEPOOL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRIZEPOOL">
+              <PropertyRef Name="IdPrizepool" />
+            </Principal>
+            <Dependent Role="PUESTO_PRIZEPOOL">
+              <PropertyRef Name="IdPrizepool" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TORNEO__IdJuego__4D94879B">
+          <End Role="JUEGO" Type="Self.JUEGO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TORNEO" Type="Self.TORNEO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JUEGO">
+              <PropertyRef Name="IdJuego" />
+            </Principal>
+            <Dependent Role="TORNEO">
+              <PropertyRef Name="IdJuego" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="usp_KillsEquipoPorPartida" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="partida" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="eSportsModelStoreContainer">
+          <EntitySet Name="DETALLE_EQUIPO" EntityType="Self.DETALLE_EQUIPO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DETALLE_JUGADOR_PARTIDA" EntityType="Self.DETALLE_JUGADOR_PARTIDA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DETALLE_PERSONAL" EntityType="Self.DETALLE_PERSONAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EQUIPO" EntityType="Self.EQUIPO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HEROE" EntityType="Self.HEROE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JUEGO" EntityType="Self.JUEGO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JUGADOR" EntityType="Self.JUGADOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PARTIDA" EntityType="Self.PARTIDA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERSONAL" EntityType="Self.PERSONAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRIZEPOOL" EntityType="Self.PRIZEPOOL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PUESTO_PRIZEPOOL" EntityType="Self.PUESTO_PRIZEPOOL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TORNEO" EntityType="Self.TORNEO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_RankingKillsPorPartida" EntityType="Self.vw_RankingKillsPorPartida" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_RankingKillsPorPartida].[IdPartida] AS [IdPartida], 
+    [vw_RankingKillsPorPartida].[RoundPartida] AS [RoundPartida], 
+    [vw_RankingKillsPorPartida].[NickJugador] AS [NickJugador], 
+    [vw_RankingKillsPorPartida].[NomHeroe] AS [NomHeroe], 
+    [vw_RankingKillsPorPartida].[TotalKills] AS [TotalKills], 
+    [vw_RankingKillsPorPartida].[TotalDeaths] AS [TotalDeaths], 
+    [vw_RankingKillsPorPartida].[TotalAssists] AS [TotalAssists]
+    FROM [dbo].[vw_RankingKillsPorPartida] AS [vw_RankingKillsPorPartida]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__DETALLE_E__IdEqu__5165187F" Association="Self.FK__DETALLE_E__IdEqu__5165187F">
+            <End Role="EQUIPO" EntitySet="EQUIPO" />
+            <End Role="DETALLE_EQUIPO" EntitySet="DETALLE_EQUIPO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_E__IdTor__52593CB8" Association="Self.FK__DETALLE_E__IdTor__52593CB8">
+            <End Role="TORNEO" EntitySet="TORNEO" />
+            <End Role="DETALLE_EQUIPO" EntitySet="DETALLE_EQUIPO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_J__IdEqu__5BE2A6F2" Association="Self.FK__DETALLE_J__IdEqu__5BE2A6F2">
+            <End Role="EQUIPO" EntitySet="EQUIPO" />
+            <End Role="DETALLE_JUGADOR_PARTIDA" EntitySet="DETALLE_JUGADOR_PARTIDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_J__IdHer__571DF1D5" Association="Self.FK__DETALLE_J__IdHer__571DF1D5">
+            <End Role="HEROE" EntitySet="HEROE" />
+            <End Role="DETALLE_JUGADOR_PARTIDA" EntitySet="DETALLE_JUGADOR_PARTIDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_J__IdJug__5441852A" Association="Self.FK__DETALLE_J__IdJug__5441852A">
+            <End Role="JUGADOR" EntitySet="JUGADOR" />
+            <End Role="DETALLE_JUGADOR_PARTIDA" EntitySet="DETALLE_JUGADOR_PARTIDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_J__IdPar__5629CD9C" Association="Self.FK__DETALLE_J__IdPar__5629CD9C">
+            <End Role="PARTIDA" EntitySet="PARTIDA" />
+            <End Role="DETALLE_JUGADOR_PARTIDA" EntitySet="DETALLE_JUGADOR_PARTIDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_P__IdPer__4F7CD00D" Association="Self.FK__DETALLE_P__IdPer__4F7CD00D">
+            <End Role="PERSONAL" EntitySet="PERSONAL" />
+            <End Role="DETALLE_PERSONAL" EntitySet="DETALLE_PERSONAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_P__IdTor__5070F446" Association="Self.FK__DETALLE_P__IdTor__5070F446">
+            <End Role="TORNEO" EntitySet="TORNEO" />
+            <End Role="DETALLE_PERSONAL" EntitySet="DETALLE_PERSONAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JUGADOR__IdEquip__4E88ABD4" Association="Self.FK__JUGADOR__IdEquip__4E88ABD4">
+            <End Role="EQUIPO" EntitySet="EQUIPO" />
+            <End Role="JUGADOR" EntitySet="JUGADOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PARTIDA__IdTorne__534D60F1" Association="Self.FK__PARTIDA__IdTorne__534D60F1">
+            <End Role="TORNEO" EntitySet="TORNEO" />
+            <End Role="PARTIDA" EntitySet="PARTIDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PARTIDA__TeamWin__114A936A" Association="Self.FK__PARTIDA__TeamWin__114A936A">
+            <End Role="EQUIPO" EntitySet="EQUIPO" />
+            <End Role="PARTIDA" EntitySet="PARTIDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRIZEPOOL__IdTor__5812160E" Association="Self.FK__PRIZEPOOL__IdTor__5812160E">
+            <End Role="TORNEO" EntitySet="TORNEO" />
+            <End Role="PRIZEPOOL" EntitySet="PRIZEPOOL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PUESTO_PR__IdPri__59063A47" Association="Self.FK__PUESTO_PR__IdPri__59063A47">
+            <End Role="PRIZEPOOL" EntitySet="PRIZEPOOL" />
+            <End Role="PUESTO_PRIZEPOOL" EntitySet="PUESTO_PRIZEPOOL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TORNEO__IdJuego__4D94879B" Association="Self.FK__TORNEO__IdJuego__4D94879B">
+            <End Role="JUEGO" EntitySet="JUEGO" />
+            <End Role="TORNEO" EntitySet="TORNEO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="eSportsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DETALLE_EQUIPO">
+          <Key>
+            <PropertyRef Name="IdEquipo" />
+            <PropertyRef Name="IdTorneo" />
+          </Key>
+          <Property Name="IdEquipo" Type="Int32" Nullable="false" />
+          <Property Name="IdTorneo" Type="Int32" Nullable="false" />
+          <Property Name="Victorias" Type="Int32" Nullable="false" />
+          <Property Name="Derrotas" Type="Int32" Nullable="false" />
+          <Property Name="Puesto" Type="Int32" />
+          <NavigationProperty Name="EQUIPO" Relationship="Self.FK__DETALLE_E__IdEqu__5165187F" FromRole="DETALLE_EQUIPO" ToRole="EQUIPO" />
+          <NavigationProperty Name="TORNEO" Relationship="Self.FK__DETALLE_E__IdTor__52593CB8" FromRole="DETALLE_EQUIPO" ToRole="TORNEO" />
+        </EntityType>
+        <EntityType Name="DETALLE_JUGADOR_PARTIDA">
+          <Key>
+            <PropertyRef Name="IdJugador" />
+            <PropertyRef Name="IdEquipo" />
+            <PropertyRef Name="IdPartida" />
+            <PropertyRef Name="IdHeroe" />
+          </Key>
+          <Property Name="IdJugador" Type="Int32" Nullable="false" />
+          <Property Name="IdEquipo" Type="Int32" Nullable="false" />
+          <Property Name="IdPartida" Type="Int32" Nullable="false" />
+          <Property Name="IdHeroe" Type="Int32" Nullable="false" />
+          <Property Name="Kills" Type="Int32" Nullable="false" />
+          <Property Name="Deaths" Type="Int32" Nullable="false" />
+          <Property Name="Assists" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EQUIPO" Relationship="Self.FK__DETALLE_J__IdEqu__5BE2A6F2" FromRole="DETALLE_JUGADOR_PARTIDA" ToRole="EQUIPO" />
+          <NavigationProperty Name="HEROE" Relationship="Self.FK__DETALLE_J__IdHer__571DF1D5" FromRole="DETALLE_JUGADOR_PARTIDA" ToRole="HEROE" />
+          <NavigationProperty Name="JUGADOR" Relationship="Self.FK__DETALLE_J__IdJug__5441852A" FromRole="DETALLE_JUGADOR_PARTIDA" ToRole="JUGADOR" />
+          <NavigationProperty Name="PARTIDA" Relationship="Self.FK__DETALLE_J__IdPar__5629CD9C" FromRole="DETALLE_JUGADOR_PARTIDA" ToRole="PARTIDA" />
+        </EntityType>
+        <EntityType Name="DETALLE_PERSONAL">
+          <Key>
+            <PropertyRef Name="IdPersonal" />
+            <PropertyRef Name="IdTorneo" />
+          </Key>
+          <Property Name="IdPersonal" Type="Int32" Nullable="false" />
+          <Property Name="IdTorneo" Type="Int32" Nullable="false" />
+          <Property Name="FechaInicioContrato" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaFinContrato" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="PERSONAL" Relationship="Self.FK__DETALLE_P__IdPer__4F7CD00D" FromRole="DETALLE_PERSONAL" ToRole="PERSONAL" />
+          <NavigationProperty Name="TORNEO" Relationship="Self.FK__DETALLE_P__IdTor__5070F446" FromRole="DETALLE_PERSONAL" ToRole="TORNEO" />
+        </EntityType>
+        <EntityType Name="EQUIPO">
+          <Key>
+            <PropertyRef Name="IdEquipo" />
+          </Key>
+          <Property Name="IdEquipo" Type="Int32" Nullable="false" />
+          <Property Name="NomEquipo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PaisEquipo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DETALLE_EQUIPO" Relationship="Self.FK__DETALLE_E__IdEqu__5165187F" FromRole="EQUIPO" ToRole="DETALLE_EQUIPO" />
+          <NavigationProperty Name="DETALLE_JUGADOR_PARTIDA" Relationship="Self.FK__DETALLE_J__IdEqu__5BE2A6F2" FromRole="EQUIPO" ToRole="DETALLE_JUGADOR_PARTIDA" />
+          <NavigationProperty Name="JUGADOR" Relationship="Self.FK__JUGADOR__IdEquip__4E88ABD4" FromRole="EQUIPO" ToRole="JUGADOR" />
+          <NavigationProperty Name="PARTIDA" Relationship="Self.FK__PARTIDA__TeamWin__114A936A" FromRole="EQUIPO" ToRole="PARTIDA" />
+        </EntityType>
+        <EntityType Name="HEROE">
+          <Key>
+            <PropertyRef Name="IdHeroe" />
+          </Key>
+          <Property Name="IdHeroe" Type="Int32" Nullable="false" />
+          <Property Name="NomHeroe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Atributo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Complejidad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DETALLE_JUGADOR_PARTIDA" Relationship="Self.FK__DETALLE_J__IdHer__571DF1D5" FromRole="HEROE" ToRole="DETALLE_JUGADOR_PARTIDA" />
+        </EntityType>
+        <EntityType Name="JUEGO">
+          <Key>
+            <PropertyRef Name="IdJuego" />
+          </Key>
+          <Property Name="IdJuego" Type="Int32" Nullable="false" />
+          <Property Name="NomJuego" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DesaJuego" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaJuego" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="GeneJuego" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TORNEO" Relationship="Self.FK__TORNEO__IdJuego__4D94879B" FromRole="JUEGO" ToRole="TORNEO" />
+        </EntityType>
+        <EntityType Name="JUGADOR">
+          <Key>
+            <PropertyRef Name="IdJugador" />
+          </Key>
+          <Property Name="IdJugador" Type="Int32" Nullable="false" />
+          <Property Name="ApeJugador" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NomJugador" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NickJugador" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EdadJugador" Type="Int32" />
+          <Property Name="PaisJugador" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CapJugador" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="RolJugador" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdEquipo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DETALLE_JUGADOR_PARTIDA" Relationship="Self.FK__DETALLE_J__IdJug__5441852A" FromRole="JUGADOR" ToRole="DETALLE_JUGADOR_PARTIDA" />
+          <NavigationProperty Name="EQUIPO" Relationship="Self.FK__JUGADOR__IdEquip__4E88ABD4" FromRole="JUGADOR" ToRole="EQUIPO" />
+        </EntityType>
+        <EntityType Name="PARTIDA">
+          <Key>
+            <PropertyRef Name="IdPartida" />
+          </Key>
+          <Property Name="IdPartida" Type="Int32" Nullable="false" />
+          <Property Name="RoundPartida" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaPartida" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Team" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Score" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="vsTeam" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdTorneo" Type="Int32" Nullable="false" />
+          <Property Name="TeamWinner" Type="Int32" />
+          <NavigationProperty Name="DETALLE_JUGADOR_PARTIDA" Relationship="Self.FK__DETALLE_J__IdPar__5629CD9C" FromRole="PARTIDA" ToRole="DETALLE_JUGADOR_PARTIDA" />
+          <NavigationProperty Name="EQUIPO" Relationship="Self.FK__PARTIDA__TeamWin__114A936A" FromRole="PARTIDA" ToRole="EQUIPO" />
+          <NavigationProperty Name="TORNEO" Relationship="Self.FK__PARTIDA__IdTorne__534D60F1" FromRole="PARTIDA" ToRole="TORNEO" />
+        </EntityType>
+        <EntityType Name="PERSONAL">
+          <Key>
+            <PropertyRef Name="IdPersonal" />
+          </Key>
+          <Property Name="IdPersonal" Type="Int32" Nullable="false" />
+          <Property Name="ApePersonal" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NomPersonal" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PaisPersonal" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CargoPersonal" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DETALLE_PERSONAL" Relationship="Self.FK__DETALLE_P__IdPer__4F7CD00D" FromRole="PERSONAL" ToRole="DETALLE_PERSONAL" />
+        </EntityType>
+        <EntityType Name="PRIZEPOOL">
+          <Key>
+            <PropertyRef Name="IdPrizepool" />
+          </Key>
+          <Property Name="IdPrizepool" Type="Int32" Nullable="false" />
+          <Property Name="IdTorneo" Type="Int32" Nullable="false" />
+          <Property Name="PrizepoolTotal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="TORNEO" Relationship="Self.FK__PRIZEPOOL__IdTor__5812160E" FromRole="PRIZEPOOL" ToRole="TORNEO" />
+          <NavigationProperty Name="PUESTO_PRIZEPOOL" Relationship="Self.FK__PUESTO_PR__IdPri__59063A47" FromRole="PRIZEPOOL" ToRole="PUESTO_PRIZEPOOL" />
+        </EntityType>
+        <EntityType Name="PUESTO_PRIZEPOOL">
+          <Key>
+            <PropertyRef Name="IdPuesto" />
+          </Key>
+          <Property Name="IdPuesto" Type="Int32" Nullable="false" />
+          <Property Name="IdPrizepool" Type="Int32" Nullable="false" />
+          <Property Name="Porcentaje" Type="Int32" Nullable="false" />
+          <Property Name="GananciaEquipo" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Puesto" Type="Int32" />
+          <NavigationProperty Name="PRIZEPOOL" Relationship="Self.FK__PUESTO_PR__IdPri__59063A47" FromRole="PUESTO_PRIZEPOOL" ToRole="PRIZEPOOL" />
+        </EntityType>
+        <EntityType Name="TORNEO">
+          <Key>
+            <PropertyRef Name="IdTorneo" />
+          </Key>
+          <Property Name="IdTorneo" Type="Int32" Nullable="false" />
+          <Property Name="NomTorneo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OrgTorneo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PaisTorneo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LugarTorneo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaInicioTorneo" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaFinTorneo" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdJuego" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DETALLE_EQUIPO" Relationship="Self.FK__DETALLE_E__IdTor__52593CB8" FromRole="TORNEO" ToRole="DETALLE_EQUIPO" />
+          <NavigationProperty Name="DETALLE_PERSONAL" Relationship="Self.FK__DETALLE_P__IdTor__5070F446" FromRole="TORNEO" ToRole="DETALLE_PERSONAL" />
+          <NavigationProperty Name="JUEGO" Relationship="Self.FK__TORNEO__IdJuego__4D94879B" FromRole="TORNEO" ToRole="JUEGO" />
+          <NavigationProperty Name="PARTIDA" Relationship="Self.FK__PARTIDA__IdTorne__534D60F1" FromRole="TORNEO" ToRole="PARTIDA" />
+          <NavigationProperty Name="PRIZEPOOL" Relationship="Self.FK__PRIZEPOOL__IdTor__5812160E" FromRole="TORNEO" ToRole="PRIZEPOOL" />
+        </EntityType>
+        <EntityType Name="vw_RankingKillsPorPartida">
+          <Key>
+            <PropertyRef Name="IdPartida" />
+            <PropertyRef Name="RoundPartida" />
+            <PropertyRef Name="NickJugador" />
+            <PropertyRef Name="NomHeroe" />
+          </Key>
+          <Property Name="IdPartida" Type="Int32" Nullable="false" />
+          <Property Name="RoundPartida" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NickJugador" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NomHeroe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TotalKills" Type="Int32" />
+          <Property Name="TotalDeaths" Type="Int32" />
+          <Property Name="TotalAssists" Type="Int32" />
+        </EntityType>
+        <Association Name="FK__DETALLE_E__IdEqu__5165187F">
+          <End Role="EQUIPO" Type="Self.EQUIPO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DETALLE_EQUIPO" Type="Self.DETALLE_EQUIPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EQUIPO">
+              <PropertyRef Name="IdEquipo" />
+            </Principal>
+            <Dependent Role="DETALLE_EQUIPO">
+              <PropertyRef Name="IdEquipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_E__IdTor__52593CB8">
+          <End Role="TORNEO" Type="Self.TORNEO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DETALLE_EQUIPO" Type="Self.DETALLE_EQUIPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TORNEO">
+              <PropertyRef Name="IdTorneo" />
+            </Principal>
+            <Dependent Role="DETALLE_EQUIPO">
+              <PropertyRef Name="IdTorneo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_J__IdEqu__5BE2A6F2">
+          <End Role="EQUIPO" Type="Self.EQUIPO" Multiplicity="1" />
+          <End Role="DETALLE_JUGADOR_PARTIDA" Type="Self.DETALLE_JUGADOR_PARTIDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EQUIPO">
+              <PropertyRef Name="IdEquipo" />
+            </Principal>
+            <Dependent Role="DETALLE_JUGADOR_PARTIDA">
+              <PropertyRef Name="IdEquipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_J__IdHer__571DF1D5">
+          <End Role="HEROE" Type="Self.HEROE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DETALLE_JUGADOR_PARTIDA" Type="Self.DETALLE_JUGADOR_PARTIDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HEROE">
+              <PropertyRef Name="IdHeroe" />
+            </Principal>
+            <Dependent Role="DETALLE_JUGADOR_PARTIDA">
+              <PropertyRef Name="IdHeroe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_J__IdJug__5441852A">
+          <End Role="JUGADOR" Type="Self.JUGADOR" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DETALLE_JUGADOR_PARTIDA" Type="Self.DETALLE_JUGADOR_PARTIDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JUGADOR">
+              <PropertyRef Name="IdJugador" />
+            </Principal>
+            <Dependent Role="DETALLE_JUGADOR_PARTIDA">
+              <PropertyRef Name="IdJugador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_J__IdPar__5629CD9C">
+          <End Role="PARTIDA" Type="Self.PARTIDA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DETALLE_JUGADOR_PARTIDA" Type="Self.DETALLE_JUGADOR_PARTIDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PARTIDA">
+              <PropertyRef Name="IdPartida" />
+            </Principal>
+            <Dependent Role="DETALLE_JUGADOR_PARTIDA">
+              <PropertyRef Name="IdPartida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_P__IdPer__4F7CD00D">
+          <End Role="PERSONAL" Type="Self.PERSONAL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DETALLE_PERSONAL" Type="Self.DETALLE_PERSONAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONAL">
+              <PropertyRef Name="IdPersonal" />
+            </Principal>
+            <Dependent Role="DETALLE_PERSONAL">
+              <PropertyRef Name="IdPersonal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DETALLE_P__IdTor__5070F446">
+          <End Role="TORNEO" Type="Self.TORNEO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DETALLE_PERSONAL" Type="Self.DETALLE_PERSONAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TORNEO">
+              <PropertyRef Name="IdTorneo" />
+            </Principal>
+            <Dependent Role="DETALLE_PERSONAL">
+              <PropertyRef Name="IdTorneo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JUGADOR__IdEquip__4E88ABD4">
+          <End Role="EQUIPO" Type="Self.EQUIPO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="JUGADOR" Type="Self.JUGADOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EQUIPO">
+              <PropertyRef Name="IdEquipo" />
+            </Principal>
+            <Dependent Role="JUGADOR">
+              <PropertyRef Name="IdEquipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PARTIDA__TeamWin__114A936A">
+          <End Role="EQUIPO" Type="Self.EQUIPO" Multiplicity="0..1" />
+          <End Role="PARTIDA" Type="Self.PARTIDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EQUIPO">
+              <PropertyRef Name="IdEquipo" />
+            </Principal>
+            <Dependent Role="PARTIDA">
+              <PropertyRef Name="TeamWinner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TORNEO__IdJuego__4D94879B">
+          <End Role="JUEGO" Type="Self.JUEGO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TORNEO" Type="Self.TORNEO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JUEGO">
+              <PropertyRef Name="IdJuego" />
+            </Principal>
+            <Dependent Role="TORNEO">
+              <PropertyRef Name="IdJuego" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PARTIDA__IdTorne__534D60F1">
+          <End Role="TORNEO" Type="Self.TORNEO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PARTIDA" Type="Self.PARTIDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TORNEO">
+              <PropertyRef Name="IdTorneo" />
+            </Principal>
+            <Dependent Role="PARTIDA">
+              <PropertyRef Name="IdTorneo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PRIZEPOOL__IdTor__5812160E">
+          <End Role="TORNEO" Type="Self.TORNEO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PRIZEPOOL" Type="Self.PRIZEPOOL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TORNEO">
+              <PropertyRef Name="IdTorneo" />
+            </Principal>
+            <Dependent Role="PRIZEPOOL">
+              <PropertyRef Name="IdTorneo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PUESTO_PR__IdPri__59063A47">
+          <End Role="PRIZEPOOL" Type="Self.PRIZEPOOL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PUESTO_PRIZEPOOL" Type="Self.PUESTO_PRIZEPOOL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRIZEPOOL">
+              <PropertyRef Name="IdPrizepool" />
+            </Principal>
+            <Dependent Role="PUESTO_PRIZEPOOL">
+              <PropertyRef Name="IdPrizepool" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="eSportsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DETALLE_EQUIPO" EntityType="Self.DETALLE_EQUIPO" />
+          <EntitySet Name="DETALLE_JUGADOR_PARTIDA" EntityType="Self.DETALLE_JUGADOR_PARTIDA" />
+          <EntitySet Name="DETALLE_PERSONAL" EntityType="Self.DETALLE_PERSONAL" />
+          <EntitySet Name="EQUIPO" EntityType="Self.EQUIPO" />
+          <EntitySet Name="HEROE" EntityType="Self.HEROE" />
+          <EntitySet Name="JUEGO" EntityType="Self.JUEGO" />
+          <EntitySet Name="JUGADOR" EntityType="Self.JUGADOR" />
+          <EntitySet Name="PARTIDA" EntityType="Self.PARTIDA" />
+          <EntitySet Name="PERSONAL" EntityType="Self.PERSONAL" />
+          <EntitySet Name="PRIZEPOOL" EntityType="Self.PRIZEPOOL" />
+          <EntitySet Name="PUESTO_PRIZEPOOL" EntityType="Self.PUESTO_PRIZEPOOL" />
+          <EntitySet Name="TORNEO" EntityType="Self.TORNEO" />
+          <EntitySet Name="vw_RankingKillsPorPartida" EntityType="Self.vw_RankingKillsPorPartida" />
+          <AssociationSet Name="FK__DETALLE_E__IdEqu__5165187F" Association="Self.FK__DETALLE_E__IdEqu__5165187F">
+            <End Role="EQUIPO" EntitySet="EQUIPO" />
+            <End Role="DETALLE_EQUIPO" EntitySet="DETALLE_EQUIPO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_E__IdTor__52593CB8" Association="Self.FK__DETALLE_E__IdTor__52593CB8">
+            <End Role="TORNEO" EntitySet="TORNEO" />
+            <End Role="DETALLE_EQUIPO" EntitySet="DETALLE_EQUIPO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_J__IdEqu__5BE2A6F2" Association="Self.FK__DETALLE_J__IdEqu__5BE2A6F2">
+            <End Role="EQUIPO" EntitySet="EQUIPO" />
+            <End Role="DETALLE_JUGADOR_PARTIDA" EntitySet="DETALLE_JUGADOR_PARTIDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_J__IdHer__571DF1D5" Association="Self.FK__DETALLE_J__IdHer__571DF1D5">
+            <End Role="HEROE" EntitySet="HEROE" />
+            <End Role="DETALLE_JUGADOR_PARTIDA" EntitySet="DETALLE_JUGADOR_PARTIDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_J__IdJug__5441852A" Association="Self.FK__DETALLE_J__IdJug__5441852A">
+            <End Role="JUGADOR" EntitySet="JUGADOR" />
+            <End Role="DETALLE_JUGADOR_PARTIDA" EntitySet="DETALLE_JUGADOR_PARTIDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_J__IdPar__5629CD9C" Association="Self.FK__DETALLE_J__IdPar__5629CD9C">
+            <End Role="PARTIDA" EntitySet="PARTIDA" />
+            <End Role="DETALLE_JUGADOR_PARTIDA" EntitySet="DETALLE_JUGADOR_PARTIDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_P__IdPer__4F7CD00D" Association="Self.FK__DETALLE_P__IdPer__4F7CD00D">
+            <End Role="PERSONAL" EntitySet="PERSONAL" />
+            <End Role="DETALLE_PERSONAL" EntitySet="DETALLE_PERSONAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DETALLE_P__IdTor__5070F446" Association="Self.FK__DETALLE_P__IdTor__5070F446">
+            <End Role="TORNEO" EntitySet="TORNEO" />
+            <End Role="DETALLE_PERSONAL" EntitySet="DETALLE_PERSONAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JUGADOR__IdEquip__4E88ABD4" Association="Self.FK__JUGADOR__IdEquip__4E88ABD4">
+            <End Role="EQUIPO" EntitySet="EQUIPO" />
+            <End Role="JUGADOR" EntitySet="JUGADOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PARTIDA__TeamWin__114A936A" Association="Self.FK__PARTIDA__TeamWin__114A936A">
+            <End Role="EQUIPO" EntitySet="EQUIPO" />
+            <End Role="PARTIDA" EntitySet="PARTIDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TORNEO__IdJuego__4D94879B" Association="Self.FK__TORNEO__IdJuego__4D94879B">
+            <End Role="JUEGO" EntitySet="JUEGO" />
+            <End Role="TORNEO" EntitySet="TORNEO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PARTIDA__IdTorne__534D60F1" Association="Self.FK__PARTIDA__IdTorne__534D60F1">
+            <End Role="TORNEO" EntitySet="TORNEO" />
+            <End Role="PARTIDA" EntitySet="PARTIDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PRIZEPOOL__IdTor__5812160E" Association="Self.FK__PRIZEPOOL__IdTor__5812160E">
+            <End Role="TORNEO" EntitySet="TORNEO" />
+            <End Role="PRIZEPOOL" EntitySet="PRIZEPOOL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PUESTO_PR__IdPri__59063A47" Association="Self.FK__PUESTO_PR__IdPri__59063A47">
+            <End Role="PRIZEPOOL" EntitySet="PRIZEPOOL" />
+            <End Role="PUESTO_PRIZEPOOL" EntitySet="PUESTO_PRIZEPOOL" />
+          </AssociationSet>
+          <FunctionImport Name="usp_KillsEquipoPorPartida" ReturnType="Collection(eSportsModel.usp_KillsEquipoPorPartida_Result)">
+            <Parameter Name="partida" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="usp_KillsEquipoPorPartida_Result">
+          <Property Type="String" Name="Enfrentamiento" Nullable="false" MaxLength="87" />
+          <Property Type="String" Name="NomEquipo" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="Resultado" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="eSportsModelStoreContainer" CdmEntityContainer="eSportsEntities">
+          <EntitySetMapping Name="DETALLE_EQUIPO">
+            <EntityTypeMapping TypeName="eSportsModel.DETALLE_EQUIPO">
+              <MappingFragment StoreEntitySet="DETALLE_EQUIPO">
+                <ScalarProperty Name="IdEquipo" ColumnName="IdEquipo" />
+                <ScalarProperty Name="IdTorneo" ColumnName="IdTorneo" />
+                <ScalarProperty Name="Victorias" ColumnName="Victorias" />
+                <ScalarProperty Name="Derrotas" ColumnName="Derrotas" />
+                <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DETALLE_JUGADOR_PARTIDA">
+            <EntityTypeMapping TypeName="eSportsModel.DETALLE_JUGADOR_PARTIDA">
+              <MappingFragment StoreEntitySet="DETALLE_JUGADOR_PARTIDA">
+                <ScalarProperty Name="IdJugador" ColumnName="IdJugador" />
+                <ScalarProperty Name="IdEquipo" ColumnName="IdEquipo" />
+                <ScalarProperty Name="IdPartida" ColumnName="IdPartida" />
+                <ScalarProperty Name="IdHeroe" ColumnName="IdHeroe" />
+                <ScalarProperty Name="Kills" ColumnName="Kills" />
+                <ScalarProperty Name="Deaths" ColumnName="Deaths" />
+                <ScalarProperty Name="Assists" ColumnName="Assists" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DETALLE_PERSONAL">
+            <EntityTypeMapping TypeName="eSportsModel.DETALLE_PERSONAL">
+              <MappingFragment StoreEntitySet="DETALLE_PERSONAL">
+                <ScalarProperty Name="IdPersonal" ColumnName="IdPersonal" />
+                <ScalarProperty Name="IdTorneo" ColumnName="IdTorneo" />
+                <ScalarProperty Name="FechaInicioContrato" ColumnName="FechaInicioContrato" />
+                <ScalarProperty Name="FechaFinContrato" ColumnName="FechaFinContrato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EQUIPO">
+            <EntityTypeMapping TypeName="eSportsModel.EQUIPO">
+              <MappingFragment StoreEntitySet="EQUIPO">
+                <ScalarProperty Name="IdEquipo" ColumnName="IdEquipo" />
+                <ScalarProperty Name="NomEquipo" ColumnName="NomEquipo" />
+                <ScalarProperty Name="PaisEquipo" ColumnName="PaisEquipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HEROE">
+            <EntityTypeMapping TypeName="eSportsModel.HEROE">
+              <MappingFragment StoreEntitySet="HEROE">
+                <ScalarProperty Name="IdHeroe" ColumnName="IdHeroe" />
+                <ScalarProperty Name="NomHeroe" ColumnName="NomHeroe" />
+                <ScalarProperty Name="Atributo" ColumnName="Atributo" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Complejidad" ColumnName="Complejidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JUEGO">
+            <EntityTypeMapping TypeName="eSportsModel.JUEGO">
+              <MappingFragment StoreEntitySet="JUEGO">
+                <ScalarProperty Name="IdJuego" ColumnName="IdJuego" />
+                <ScalarProperty Name="NomJuego" ColumnName="NomJuego" />
+                <ScalarProperty Name="DesaJuego" ColumnName="DesaJuego" />
+                <ScalarProperty Name="FechaJuego" ColumnName="FechaJuego" />
+                <ScalarProperty Name="GeneJuego" ColumnName="GeneJuego" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JUGADOR">
+            <EntityTypeMapping TypeName="eSportsModel.JUGADOR">
+              <MappingFragment StoreEntitySet="JUGADOR">
+                <ScalarProperty Name="IdJugador" ColumnName="IdJugador" />
+                <ScalarProperty Name="ApeJugador" ColumnName="ApeJugador" />
+                <ScalarProperty Name="NomJugador" ColumnName="NomJugador" />
+                <ScalarProperty Name="NickJugador" ColumnName="NickJugador" />
+                <ScalarProperty Name="EdadJugador" ColumnName="EdadJugador" />
+                <ScalarProperty Name="PaisJugador" ColumnName="PaisJugador" />
+                <ScalarProperty Name="CapJugador" ColumnName="CapJugador" />
+                <ScalarProperty Name="RolJugador" ColumnName="RolJugador" />
+                <ScalarProperty Name="IdEquipo" ColumnName="IdEquipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PARTIDA">
+            <EntityTypeMapping TypeName="eSportsModel.PARTIDA">
+              <MappingFragment StoreEntitySet="PARTIDA">
+                <ScalarProperty Name="IdPartida" ColumnName="IdPartida" />
+                <ScalarProperty Name="RoundPartida" ColumnName="RoundPartida" />
+                <ScalarProperty Name="FechaPartida" ColumnName="FechaPartida" />
+                <ScalarProperty Name="Team" ColumnName="Team" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="vsTeam" ColumnName="vsTeam" />
+                <ScalarProperty Name="IdTorneo" ColumnName="IdTorneo" />
+                <ScalarProperty Name="TeamWinner" ColumnName="TeamWinner" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERSONAL">
+            <EntityTypeMapping TypeName="eSportsModel.PERSONAL">
+              <MappingFragment StoreEntitySet="PERSONAL">
+                <ScalarProperty Name="IdPersonal" ColumnName="IdPersonal" />
+                <ScalarProperty Name="ApePersonal" ColumnName="ApePersonal" />
+                <ScalarProperty Name="NomPersonal" ColumnName="NomPersonal" />
+                <ScalarProperty Name="PaisPersonal" ColumnName="PaisPersonal" />
+                <ScalarProperty Name="CargoPersonal" ColumnName="CargoPersonal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRIZEPOOL">
+            <EntityTypeMapping TypeName="eSportsModel.PRIZEPOOL">
+              <MappingFragment StoreEntitySet="PRIZEPOOL">
+                <ScalarProperty Name="IdPrizepool" ColumnName="IdPrizepool" />
+                <ScalarProperty Name="IdTorneo" ColumnName="IdTorneo" />
+                <ScalarProperty Name="PrizepoolTotal" ColumnName="PrizepoolTotal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PUESTO_PRIZEPOOL">
+            <EntityTypeMapping TypeName="eSportsModel.PUESTO_PRIZEPOOL">
+              <MappingFragment StoreEntitySet="PUESTO_PRIZEPOOL">
+                <ScalarProperty Name="IdPuesto" ColumnName="IdPuesto" />
+                <ScalarProperty Name="IdPrizepool" ColumnName="IdPrizepool" />
+                <ScalarProperty Name="Porcentaje" ColumnName="Porcentaje" />
+                <ScalarProperty Name="GananciaEquipo" ColumnName="GananciaEquipo" />
+                <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TORNEO">
+            <EntityTypeMapping TypeName="eSportsModel.TORNEO">
+              <MappingFragment StoreEntitySet="TORNEO">
+                <ScalarProperty Name="IdTorneo" ColumnName="IdTorneo" />
+                <ScalarProperty Name="NomTorneo" ColumnName="NomTorneo" />
+                <ScalarProperty Name="OrgTorneo" ColumnName="OrgTorneo" />
+                <ScalarProperty Name="PaisTorneo" ColumnName="PaisTorneo" />
+                <ScalarProperty Name="LugarTorneo" ColumnName="LugarTorneo" />
+                <ScalarProperty Name="FechaInicioTorneo" ColumnName="FechaInicioTorneo" />
+                <ScalarProperty Name="FechaFinTorneo" ColumnName="FechaFinTorneo" />
+                <ScalarProperty Name="IdJuego" ColumnName="IdJuego" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_RankingKillsPorPartida">
+            <EntityTypeMapping TypeName="eSportsModel.vw_RankingKillsPorPartida">
+              <MappingFragment StoreEntitySet="vw_RankingKillsPorPartida">
+                <ScalarProperty Name="IdPartida" ColumnName="IdPartida" />
+                <ScalarProperty Name="RoundPartida" ColumnName="RoundPartida" />
+                <ScalarProperty Name="NickJugador" ColumnName="NickJugador" />
+                <ScalarProperty Name="NomHeroe" ColumnName="NomHeroe" />
+                <ScalarProperty Name="TotalKills" ColumnName="TotalKills" />
+                <ScalarProperty Name="TotalDeaths" ColumnName="TotalDeaths" />
+                <ScalarProperty Name="TotalAssists" ColumnName="TotalAssists" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_KillsEquipoPorPartida" FunctionName="eSportsModel.Store.usp_KillsEquipoPorPartida">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eSportsModel.usp_KillsEquipoPorPartida_Result">
+                <ScalarProperty Name="Enfrentamiento" ColumnName="Enfrentamiento" />
+                <ScalarProperty Name="NomEquipo" ColumnName="NomEquipo" />
+                <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
