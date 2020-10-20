@@ -346,6 +346,10 @@ advertencia 6002: La tabla o vista 'eSports.dbo.vw_RankingKillsPorPartida' no ti
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="ConsultarFechaTorneo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FechaIni" Type="datetime" Mode="In" />
+          <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+        </Function>
         <Function Name="ConsultarHeroeComplejidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Complejidad" Type="varchar" Mode="In" />
         </Function>
@@ -888,11 +892,15 @@ advertencia 6002: La tabla o vista 'eSports.dbo.vw_RankingKillsPorPartida' no ti
           <Parameter Name="pais" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="ConsultarHeroeComplejidad" ReturnType="Collection(eSportsModel.ConsultarHeroeComplejidad_Result)">
-            <Parameter Name="Complejidad" Mode="In" Type="String" />
+          <Parameter Name="Complejidad" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_ListarHeroeRol" ReturnType="Collection(eSportsModel.usp_ListarHeroeRol_Result)">
             <Parameter Name="idheroe" Mode="In" Type="Int32" />
             <Parameter Name="roljugador" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ConsultarFechaTorneo" ReturnType="Collection(eSportsModel.ConsultarFechaTorneo_Result)">
+            <Parameter Name="FechaIni" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_KillsEquipoPorPartida_Result">
@@ -924,6 +932,12 @@ advertencia 6002: La tabla o vista 'eSports.dbo.vw_RankingKillsPorPartida' no ti
           <Property Type="Int32" Name="Kills" Nullable="false" />
           <Property Type="Int32" Name="Deaths" Nullable="false" />
           <Property Type="Int32" Name="Assists" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="ConsultarFechaTorneo_Result">
+          <Property Type="String" Name="NomTorneo" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="OrgTorneo" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="PaisTorneo" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="LugarTorneo" Nullable="false" MaxLength="30" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1126,6 +1140,16 @@ advertencia 6002: La tabla o vista 'eSports.dbo.vw_RankingKillsPorPartida' no ti
                 <ScalarProperty Name="Kills" ColumnName="Kills" />
                 <ScalarProperty Name="Deaths" ColumnName="Deaths" />
                 <ScalarProperty Name="Assists" ColumnName="Assists" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ConsultarFechaTorneo" FunctionName="eSportsModel.Store.ConsultarFechaTorneo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eSportsModel.ConsultarFechaTorneo_Result">
+                <ScalarProperty Name="NomTorneo" ColumnName="NomTorneo" />
+                <ScalarProperty Name="OrgTorneo" ColumnName="OrgTorneo" />
+                <ScalarProperty Name="PaisTorneo" ColumnName="PaisTorneo" />
+                <ScalarProperty Name="LugarTorneo" ColumnName="LugarTorneo" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

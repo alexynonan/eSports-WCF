@@ -52,6 +52,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsultarFechaTorneo_Result.cs">
+      <DependentUpon>eSports.tt</DependentUpon>
+    </Compile>
     <Compile Include="ConsultarHeroeComplejidad_Result.cs">
       <DependentUpon>eSports.tt</DependentUpon>
     </Compile>
@@ -89,6 +92,7 @@
     <Compile Include="IServicioEquipo.cs" />
     <Compile Include="IServicioHeroe.cs" />
     <Compile Include="IServicioJugador.cs" />
+    <Compile Include="IServicioTorneo.cs" />
     <Compile Include="JUEGO.cs">
       <DependentUpon>eSports.tt</DependentUpon>
     </Compile>
@@ -115,6 +119,7 @@
     <Compile Include="ServicioEquipo.cs" />
     <Compile Include="ServicioHeroe.cs" />
     <Compile Include="ServicioJugador.cs" />
+    <Compile Include="ServicioTorneo.cs" />
     <Compile Include="TORNEO.cs">
       <DependentUpon>eSports.tt</DependentUpon>
     </Compile>

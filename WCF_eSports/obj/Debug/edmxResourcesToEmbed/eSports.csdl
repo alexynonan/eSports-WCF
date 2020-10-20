@@ -450,6 +450,10 @@
       <Parameter Name="idheroe" Mode="In" Type="Int32" />
       <Parameter Name="roljugador" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="ConsultarFechaTorneo" ReturnType="Collection(eSportsModel.ConsultarFechaTorneo_Result)">
+      <Parameter Name="FechaIni" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="usp_KillsEquipoPorPartida_Result">
     <Property Type="String" Name="Enfrentamiento" Nullable="false" MaxLength="87" />
@@ -480,5 +484,11 @@
     <Property Type="Int32" Name="Kills" Nullable="false" />
     <Property Type="Int32" Name="Deaths" Nullable="false" />
     <Property Type="Int32" Name="Assists" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ConsultarFechaTorneo_Result">
+    <Property Type="String" Name="NomTorneo" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="OrgTorneo" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="PaisTorneo" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="LugarTorneo" Nullable="false" MaxLength="30" />
   </ComplexType>
 </Schema>

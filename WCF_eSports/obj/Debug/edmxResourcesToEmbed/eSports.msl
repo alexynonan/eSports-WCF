@@ -199,5 +199,15 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ConsultarFechaTorneo" FunctionName="eSportsModel.Store.ConsultarFechaTorneo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="eSportsModel.ConsultarFechaTorneo_Result">
+          <ScalarProperty Name="NomTorneo" ColumnName="NomTorneo" />
+          <ScalarProperty Name="OrgTorneo" ColumnName="OrgTorneo" />
+          <ScalarProperty Name="PaisTorneo" ColumnName="PaisTorneo" />
+          <ScalarProperty Name="LugarTorneo" ColumnName="LugarTorneo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

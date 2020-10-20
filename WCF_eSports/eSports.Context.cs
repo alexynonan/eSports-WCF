@@ -80,5 +80,18 @@ namespace WCF_eSports
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarHeroeRol_Result>("usp_ListarHeroeRol", idheroeParameter, roljugadorParameter);
         }
+    
+        public virtual ObjectResult<ConsultarFechaTorneo_Result> ConsultarFechaTorneo(Nullable<System.DateTime> fechaIni, Nullable<System.DateTime> fechaFin)
+        {
+            var fechaIniParameter = fechaIni.HasValue ?
+                new ObjectParameter("FechaIni", fechaIni) :
+                new ObjectParameter("FechaIni", typeof(System.DateTime));
+    
+            var fechaFinParameter = fechaFin.HasValue ?
+                new ObjectParameter("FechaFin", fechaFin) :
+                new ObjectParameter("FechaFin", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ConsultarFechaTorneo_Result>("ConsultarFechaTorneo", fechaIniParameter, fechaFinParameter);
+        }
     }
 }
