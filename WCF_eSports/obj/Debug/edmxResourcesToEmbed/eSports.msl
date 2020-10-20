@@ -162,5 +162,42 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ListarJugadorPorPais" FunctionName="eSportsModel.Store.ListarJugadorPorPais">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="eSportsModel.ListarJugadorPorPais_Result">
+          <ScalarProperty Name="ApeJugador" ColumnName="ApeJugador" />
+          <ScalarProperty Name="NomJugador" ColumnName="NomJugador" />
+          <ScalarProperty Name="NickJugador" ColumnName="NickJugador" />
+          <ScalarProperty Name="PaisJugador" ColumnName="PaisJugador" />
+          <ScalarProperty Name="RolJugador" ColumnName="RolJugador" />
+          <ScalarProperty Name="NomEquipo" ColumnName="NomEquipo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ConsultarHeroeComplejidad" FunctionName="eSportsModel.Store.ConsultarHeroeComplejidad">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="eSportsModel.ConsultarHeroeComplejidad_Result">
+          <ScalarProperty Name="idHeroe" ColumnName="idHeroe" />
+          <ScalarProperty Name="Atributo" ColumnName="Atributo" />
+          <ScalarProperty Name="NomHeroe" ColumnName="NomHeroe" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Complejidad" ColumnName="Complejidad" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarHeroeRol" FunctionName="eSportsModel.Store.usp_ListarHeroeRol">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="eSportsModel.usp_ListarHeroeRol_Result">
+          <ScalarProperty Name="IdPartida" ColumnName="IdPartida" />
+          <ScalarProperty Name="IdJugador" ColumnName="IdJugador" />
+          <ScalarProperty Name="NickJugador" ColumnName="NickJugador" />
+          <ScalarProperty Name="IdHeroe" ColumnName="IdHeroe" />
+          <ScalarProperty Name="NomHeroe" ColumnName="NomHeroe" />
+          <ScalarProperty Name="Kills" ColumnName="Kills" />
+          <ScalarProperty Name="Deaths" ColumnName="Deaths" />
+          <ScalarProperty Name="Assists" ColumnName="Assists" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

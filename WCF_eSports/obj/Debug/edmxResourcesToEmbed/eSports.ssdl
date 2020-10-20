@@ -133,12 +133,6 @@
     <Property Name="IdJuego" Type="int" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'eSports.dbo.Usuario' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="Usuario">
-          <Property Name="Usuario" Type="varchar" MaxLength="50" />
-          <Property Name="Password" Type="varchar" MaxLength="50" />
-        </EntityType>-->
-  <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'eSports.dbo.vw_RankingKillsPorPartida' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_RankingKillsPorPartida">
     <Key>
@@ -347,8 +341,18 @@ advertencia 6002: La tabla o vista 'eSports.dbo.vw_RankingKillsPorPartida' no ti
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="ConsultarHeroeComplejidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Complejidad" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ListarJugadorPorPais" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pais" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="usp_KillsEquipoPorPartida" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="partida" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_ListarHeroeRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idheroe" Type="int" Mode="In" />
+    <Parameter Name="roljugador" Type="varchar" Mode="In" />
   </Function>
   <EntityContainer Name="eSportsModelStoreContainer">
     <EntitySet Name="DETALLE_EQUIPO" EntityType="Self.DETALLE_EQUIPO" Schema="dbo" store:Type="Tables" />

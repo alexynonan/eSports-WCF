@@ -46,5 +46,34 @@ namespace WCF_eSports
                 throw new Exception(ex.Message);
             }
         }
+
+        public List<JugadorBE> ListarPaisJugadores(String pais)
+        {
+            eSportsEntities entity = new eSportsEntities();
+            try
+            {
+                List<JugadorBE> objListaJugador = new List<JugadorBE>();
+                var query = (from JUGADOR in entity.JUGADOR
+                                                    where JUGADOR.PaisJugador == pais
+                                                    select JUGADOR);
+                foreach(var objJugadorConsultar in query)
+                { 
+                    JugadorBE objItem = new JugadorBE();
+                    objItem.Apellido = objJugadorConsultar.ApeJugador;
+                    objItem.Nombre = objJugadorConsultar.NomJugador;
+                    objItem.NickName = objJugadorConsultar.NickJugador;
+                    objItem.Pais = objJugadorConsultar.PaisJugador;
+                    objItem.Rol = objJugadorConsultar.RolJugador;
+                    objItem.Equipo = objJugadorConsultar.EQUIPO.NomEquipo;
+
+                    objListaJugador.Add(objItem);
+                }
+                return objListaJugador;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

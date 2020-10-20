@@ -14,6 +14,9 @@ namespace WCF_eSports
         [OperationContract]
         List<JugadorEstadistica> RankingJugador(Int16 top);
 
+        [OperationContract]
+        List<JugadorBE> ListarPaisJugadores(String pais);
+
     }
 
     [DataContract]
@@ -61,6 +64,52 @@ namespace WCF_eSports
         {
             get { return mvartotalassists; }
             set { mvartotalassists = value; }
+        }
+    }
+
+    public class JugadorBE
+    {
+        private String mvarApe_Jugador;
+        private String mvarNom_Jugador;
+        private String mvarNick_Jugador;
+        private String mvarPais_Jugador;
+        private String mvarRol_Jugador;
+        private String mvarNom_Equipo;
+        [DataMember]
+        public String Apellido
+        {
+            get { return mvarApe_Jugador; }
+            set { mvarApe_Jugador = value; }
+        }
+        [DataMember]
+        public String Nombre
+        {
+            get { return mvarNom_Jugador; }
+            set { mvarNom_Jugador = value; }
+        }
+        [DataMember]
+        public String NickName
+        {
+            get { return mvarNick_Jugador; }
+            set { mvarNick_Jugador = value; }
+        }
+        [DataMember]
+        public String Pais
+        {
+            get { return mvarPais_Jugador; }
+            set { mvarPais_Jugador = value; }
+        }
+        [DataMember]
+        public String Rol
+        {
+            get { return mvarRol_Jugador; }
+            set { mvarRol_Jugador = value; }
+        }
+        [DataMember]
+        public String Equipo
+        {
+            get { return mvarNom_Equipo; }
+            set { mvarNom_Equipo = value; }
         }
     }
 }

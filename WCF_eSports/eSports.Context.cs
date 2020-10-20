@@ -49,5 +49,36 @@ namespace WCF_eSports
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_KillsEquipoPorPartida_Result>("usp_KillsEquipoPorPartida", partidaParameter);
         }
+    
+        public virtual ObjectResult<ListarJugadorPorPais_Result> ListarJugadorPorPais(string pais)
+        {
+            var paisParameter = pais != null ?
+                new ObjectParameter("pais", pais) :
+                new ObjectParameter("pais", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListarJugadorPorPais_Result>("ListarJugadorPorPais", paisParameter);
+        }
+    
+        public virtual ObjectResult<ConsultarHeroeComplejidad_Result> ConsultarHeroeComplejidad(string complejidad)
+        {
+            var complejidadParameter = complejidad != null ?
+                new ObjectParameter("Complejidad", complejidad) :
+                new ObjectParameter("Complejidad", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ConsultarHeroeComplejidad_Result>("ConsultarHeroeComplejidad", complejidadParameter);
+        }
+    
+        public virtual ObjectResult<usp_ListarHeroeRol_Result> usp_ListarHeroeRol(Nullable<int> idheroe, string roljugador)
+        {
+            var idheroeParameter = idheroe.HasValue ?
+                new ObjectParameter("idheroe", idheroe) :
+                new ObjectParameter("idheroe", typeof(int));
+    
+            var roljugadorParameter = roljugador != null ?
+                new ObjectParameter("roljugador", roljugador) :
+                new ObjectParameter("roljugador", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarHeroeRol_Result>("usp_ListarHeroeRol", idheroeParameter, roljugadorParameter);
+        }
     }
 }

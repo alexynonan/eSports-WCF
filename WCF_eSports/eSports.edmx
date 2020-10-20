@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="eSportsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="eSportsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="DETALLE_EQUIPO">
           <Key>
             <PropertyRef Name="IdEquipo" />
@@ -137,12 +137,6 @@
           <Property Name="FechaFinTorneo" Type="datetime" Nullable="false" />
           <Property Name="IdJuego" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'eSports.dbo.Usuario' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="Usuario">
-          <Property Name="Usuario" Type="varchar" MaxLength="50" />
-          <Property Name="Password" Type="varchar" MaxLength="50" />
-        </EntityType>-->
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'eSports.dbo.vw_RankingKillsPorPartida' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vw_RankingKillsPorPartida">
@@ -352,8 +346,18 @@ advertencia 6002: La tabla o vista 'eSports.dbo.vw_RankingKillsPorPartida' no ti
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="ConsultarHeroeComplejidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Complejidad" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ListarJugadorPorPais" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pais" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="usp_KillsEquipoPorPartida" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="partida" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_ListarHeroeRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idheroe" Type="int" Mode="In" />
+          <Parameter Name="roljugador" Type="varchar" Mode="In" />
         </Function>
         <EntityContainer Name="eSportsModelStoreContainer">
           <EntitySet Name="DETALLE_EQUIPO" EntityType="Self.DETALLE_EQUIPO" Schema="dbo" store:Type="Tables" />
@@ -436,8 +440,7 @@ advertencia 6002: La tabla o vista 'eSports.dbo.vw_RankingKillsPorPartida' no ti
             <End Role="TORNEO" EntitySet="TORNEO" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="eSportsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -879,13 +882,48 @@ advertencia 6002: La tabla o vista 'eSports.dbo.vw_RankingKillsPorPartida' no ti
             <End Role="PUESTO_PRIZEPOOL" EntitySet="PUESTO_PRIZEPOOL" />
           </AssociationSet>
           <FunctionImport Name="usp_KillsEquipoPorPartida" ReturnType="Collection(eSportsModel.usp_KillsEquipoPorPartida_Result)">
-            <Parameter Name="partida" Mode="In" Type="Int32" />
+          <Parameter Name="partida" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ListarJugadorPorPais" ReturnType="Collection(eSportsModel.ListarJugadorPorPais_Result)">
+          <Parameter Name="pais" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ConsultarHeroeComplejidad" ReturnType="Collection(eSportsModel.ConsultarHeroeComplejidad_Result)">
+            <Parameter Name="Complejidad" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarHeroeRol" ReturnType="Collection(eSportsModel.usp_ListarHeroeRol_Result)">
+            <Parameter Name="idheroe" Mode="In" Type="Int32" />
+            <Parameter Name="roljugador" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_KillsEquipoPorPartida_Result">
           <Property Type="String" Name="Enfrentamiento" Nullable="false" MaxLength="87" />
           <Property Type="String" Name="NomEquipo" Nullable="false" MaxLength="30" />
           <Property Type="Int32" Name="Resultado" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ListarJugadorPorPais_Result">
+          <Property Type="String" Name="ApeJugador" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="NomJugador" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="NickJugador" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="PaisJugador" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="RolJugador" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="NomEquipo" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="ConsultarHeroeComplejidad_Result">
+          <Property Type="Int32" Name="idHeroe" Nullable="false" />
+          <Property Type="String" Name="Atributo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="NomHeroe" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Tipo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Complejidad" Nullable="false" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarHeroeRol_Result">
+          <Property Type="Int32" Name="IdPartida" Nullable="false" />
+          <Property Type="Int32" Name="IdJugador" Nullable="false" />
+          <Property Type="String" Name="NickJugador" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="IdHeroe" Nullable="false" />
+          <Property Type="String" Name="NomHeroe" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Kills" Nullable="false" />
+          <Property Type="Int32" Name="Deaths" Nullable="false" />
+          <Property Type="Int32" Name="Assists" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1051,6 +1089,43 @@ advertencia 6002: La tabla o vista 'eSports.dbo.vw_RankingKillsPorPartida' no ti
                 <ScalarProperty Name="Enfrentamiento" ColumnName="Enfrentamiento" />
                 <ScalarProperty Name="NomEquipo" ColumnName="NomEquipo" />
                 <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ListarJugadorPorPais" FunctionName="eSportsModel.Store.ListarJugadorPorPais">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eSportsModel.ListarJugadorPorPais_Result">
+                <ScalarProperty Name="ApeJugador" ColumnName="ApeJugador" />
+                <ScalarProperty Name="NomJugador" ColumnName="NomJugador" />
+                <ScalarProperty Name="NickJugador" ColumnName="NickJugador" />
+                <ScalarProperty Name="PaisJugador" ColumnName="PaisJugador" />
+                <ScalarProperty Name="RolJugador" ColumnName="RolJugador" />
+                <ScalarProperty Name="NomEquipo" ColumnName="NomEquipo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ConsultarHeroeComplejidad" FunctionName="eSportsModel.Store.ConsultarHeroeComplejidad">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eSportsModel.ConsultarHeroeComplejidad_Result">
+                <ScalarProperty Name="idHeroe" ColumnName="idHeroe" />
+                <ScalarProperty Name="Atributo" ColumnName="Atributo" />
+                <ScalarProperty Name="NomHeroe" ColumnName="NomHeroe" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Complejidad" ColumnName="Complejidad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarHeroeRol" FunctionName="eSportsModel.Store.usp_ListarHeroeRol">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eSportsModel.usp_ListarHeroeRol_Result">
+                <ScalarProperty Name="IdPartida" ColumnName="IdPartida" />
+                <ScalarProperty Name="IdJugador" ColumnName="IdJugador" />
+                <ScalarProperty Name="NickJugador" ColumnName="NickJugador" />
+                <ScalarProperty Name="IdHeroe" ColumnName="IdHeroe" />
+                <ScalarProperty Name="NomHeroe" ColumnName="NomHeroe" />
+                <ScalarProperty Name="Kills" ColumnName="Kills" />
+                <ScalarProperty Name="Deaths" ColumnName="Deaths" />
+                <ScalarProperty Name="Assists" ColumnName="Assists" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -440,10 +440,45 @@
     <FunctionImport Name="usp_KillsEquipoPorPartida" ReturnType="Collection(eSportsModel.usp_KillsEquipoPorPartida_Result)">
       <Parameter Name="partida" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="ListarJugadorPorPais" ReturnType="Collection(eSportsModel.ListarJugadorPorPais_Result)">
+      <Parameter Name="pais" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ConsultarHeroeComplejidad" ReturnType="Collection(eSportsModel.ConsultarHeroeComplejidad_Result)">
+      <Parameter Name="Complejidad" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_ListarHeroeRol" ReturnType="Collection(eSportsModel.usp_ListarHeroeRol_Result)">
+      <Parameter Name="idheroe" Mode="In" Type="Int32" />
+      <Parameter Name="roljugador" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="usp_KillsEquipoPorPartida_Result">
     <Property Type="String" Name="Enfrentamiento" Nullable="false" MaxLength="87" />
     <Property Type="String" Name="NomEquipo" Nullable="false" MaxLength="30" />
     <Property Type="Int32" Name="Resultado" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ListarJugadorPorPais_Result">
+    <Property Type="String" Name="ApeJugador" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="NomJugador" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="NickJugador" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="PaisJugador" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="RolJugador" Nullable="false" MaxLength="15" />
+    <Property Type="String" Name="NomEquipo" Nullable="false" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="ConsultarHeroeComplejidad_Result">
+    <Property Type="Int32" Name="idHeroe" Nullable="false" />
+    <Property Type="String" Name="Atributo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="NomHeroe" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Tipo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Complejidad" Nullable="false" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="usp_ListarHeroeRol_Result">
+    <Property Type="Int32" Name="IdPartida" Nullable="false" />
+    <Property Type="Int32" Name="IdJugador" Nullable="false" />
+    <Property Type="String" Name="NickJugador" Nullable="false" MaxLength="30" />
+    <Property Type="Int32" Name="IdHeroe" Nullable="false" />
+    <Property Type="String" Name="NomHeroe" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Kills" Nullable="false" />
+    <Property Type="Int32" Name="Deaths" Nullable="false" />
+    <Property Type="Int32" Name="Assists" Nullable="false" />
   </ComplexType>
 </Schema>
