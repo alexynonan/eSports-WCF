@@ -22,3 +22,15 @@ C:\Users\kerkh\Documents\GitHub\AplicacionesII\eSports-WCF\WCF_eSports\bin\Debug
 C:\Users\kerkh\Documents\GitHub\AplicacionesII\eSports-WCF\WCF_eSports\bin\Debug\EntityFramework.xml
 C:\Users\kerkh\Documents\GitHub\AplicacionesII\eSports-WCF\WCF_eSports\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\kerkh\Documents\GitHub\AplicacionesII\eSports-WCF\WCF_eSports\obj\Debug\WCF_eSports.csproj.CopyComplete
+C:\ISIL\6to\DA2\ProyectoPatrick\eSports-WCF\WCF_eSports\bin\Debug\WCF_eSports.dll.config
+C:\ISIL\6to\DA2\ProyectoPatrick\eSports-WCF\WCF_eSports\bin\Debug\WCF_eSports.dll
+C:\ISIL\6to\DA2\ProyectoPatrick\eSports-WCF\WCF_eSports\bin\Debug\WCF_eSports.pdb
+C:\ISIL\6to\DA2\ProyectoPatrick\eSports-WCF\WCF_eSports\bin\Debug\EntityFramework.dll
+C:\ISIL\6to\DA2\ProyectoPatrick\eSports-WCF\WCF_eSports\bin\Debug\EntityFramework.SqlServer.dll
+C:\ISIL\6to\DA2\ProyectoPatrick\eSports-WCF\WCF_eSports\bin\Debug\EntityFramework.xml
+C:\ISIL\6to\DA2\ProyectoPatrick\eSports-WCF\WCF_eSports\bin\Debug\EntityFramework.SqlServer.xml
+C:\ISIL\6to\DA2\ProyectoPatrick\eSports-WCF\WCF_eSports\obj\Debug\WCF_eSports.csprojAssemblyReference.cache
+C:\ISIL\6to\DA2\ProyectoPatrick\eSports-WCF\WCF_eSports\obj\Debug\WCF_eSports.csproj.CoreCompileInputs.cache
+C:\ISIL\6to\DA2\ProyectoPatrick\eSports-WCF\WCF_eSports\obj\Debug\WCF_eSports.csproj.CopyComplete
+C:\ISIL\6to\DA2\ProyectoPatrick\eSports-WCF\WCF_eSports\obj\Debug\WCF_eSports.dll
+C:\ISIL\6to\DA2\ProyectoPatrick\eSports-WCF\WCF_eSports\obj\Debug\WCF_eSports.pdb
