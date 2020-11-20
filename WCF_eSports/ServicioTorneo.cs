@@ -26,6 +26,7 @@ namespace WCF_eSports
                     objItem.Org = item.OrgTorneo;
                     objItem.Pais = item.PaisTorneo;
                     objItem.Lugar = item.LugarTorneo;
+                    
 
                     objLista.Add(objItem);
                 }

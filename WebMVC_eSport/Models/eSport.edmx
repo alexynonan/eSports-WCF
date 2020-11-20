@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="eSportsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="EQUIPO">
+          <Key>
+            <PropertyRef Name="IdEquipo" />
+          </Key>
+          <Property Name="IdEquipo" Type="int" Nullable="false" />
+          <Property Name="NomEquipo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PaisEquipo" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <Function Name="ActualizarEquipo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEquipo" Type="int" Mode="In" />
+          <Parameter Name="NomEquipo" Type="varchar" Mode="In" />
+          <Parameter Name="PaisEquipo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="EliminarEquipo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IDEQUIPO" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertarEquipo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NomEquipo" Type="varchar" Mode="In" />
+          <Parameter Name="PaisEquipo" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="eSportsModelStoreContainer">
+          <EntitySet Name="EQUIPO" EntityType="Self.EQUIPO" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="eSportsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="EQUIPO">
+          <Key>
+            <PropertyRef Name="IdEquipo" />
+          </Key>
+          <Property Name="IdEquipo" Type="Int32" Nullable="false" />
+          <Property Name="NomEquipo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PaisEquipo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="eSportsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EQUIPO" EntityType="Self.EQUIPO" />
+          <FunctionImport Name="ActualizarEquipo">
+            <Parameter Name="IdEquipo" Mode="In" Type="Int32" />
+            <Parameter Name="NomEquipo" Mode="In" Type="String" />
+            <Parameter Name="PaisEquipo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="EliminarEquipo">
+            <Parameter Name="IDEQUIPO" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertarEquipo">
+            <Parameter Name="NomEquipo" Mode="In" Type="String" />
+            <Parameter Name="PaisEquipo" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="eSportsModelStoreContainer" CdmEntityContainer="eSportsEntities">
+          <EntitySetMapping Name="EQUIPO">
+            <EntityTypeMapping TypeName="eSportsModel.EQUIPO">
+              <MappingFragment StoreEntitySet="EQUIPO">
+                <ScalarProperty Name="IdEquipo" ColumnName="IdEquipo" />
+                <ScalarProperty Name="NomEquipo" ColumnName="NomEquipo" />
+                <ScalarProperty Name="PaisEquipo" ColumnName="PaisEquipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="eSportsModel.EQUIPO">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="eSportsModel.Store.InsertarEquipo">
+                  <ScalarProperty Name="PaisEquipo" ParameterName="PaisEquipo" />
+                  <ScalarProperty Name="NomEquipo" ParameterName="NomEquipo" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="eSportsModel.Store.ActualizarEquipo">
+                  <ScalarProperty Name="PaisEquipo" ParameterName="PaisEquipo" Version="Current" />
+                  <ScalarProperty Name="NomEquipo" ParameterName="NomEquipo" Version="Current" />
+                  <ScalarProperty Name="IdEquipo" ParameterName="IdEquipo" Version="Original" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="eSportsModel.Store.EliminarEquipo" >
+                  <ScalarProperty Name="IdEquipo" ParameterName="IDEQUIPO" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ActualizarEquipo" FunctionName="eSportsModel.Store.ActualizarEquipo" />
+          <FunctionImportMapping FunctionImportName="EliminarEquipo" FunctionName="eSportsModel.Store.EliminarEquipo" />
+          <FunctionImportMapping FunctionImportName="InsertarEquipo" FunctionName="eSportsModel.Store.InsertarEquipo" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

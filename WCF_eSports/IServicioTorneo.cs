@@ -23,6 +23,7 @@ namespace WCF_eSports
         private String mvarOrgTorneo;
         private String mvarPaisTorneo;
         private String mvarLugarTorneo;
+        private DateTime mvarFec;
         [DataMember]
         public String Nombre
         {
@@ -46,6 +47,12 @@ namespace WCF_eSports
         {
             get { return mvarLugarTorneo; }
             set { mvarLugarTorneo = value; }
+        }
+        [DataMember]
+        public DateTime Fecha
+        {
+            get { return mvarFec; }
+            set { mvarFec = value; }
         }
     }
 }

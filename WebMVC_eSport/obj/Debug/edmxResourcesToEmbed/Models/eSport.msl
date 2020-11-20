@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="eSportsModelStoreContainer" CdmEntityContainer="eSportsEntities">
+    <EntitySetMapping Name="EQUIPO">
+      <EntityTypeMapping TypeName="eSportsModel.EQUIPO">
+        <MappingFragment StoreEntitySet="EQUIPO">
+          <ScalarProperty Name="IdEquipo" ColumnName="IdEquipo" />
+          <ScalarProperty Name="NomEquipo" ColumnName="NomEquipo" />
+          <ScalarProperty Name="PaisEquipo" ColumnName="PaisEquipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="eSportsModel.EQUIPO">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="eSportsModel.Store.InsertarEquipo">
+            <ScalarProperty Name="PaisEquipo" ParameterName="PaisEquipo" />
+            <ScalarProperty Name="NomEquipo" ParameterName="NomEquipo" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="eSportsModel.Store.ActualizarEquipo">
+            <ScalarProperty Name="PaisEquipo" ParameterName="PaisEquipo" Version="Current" />
+            <ScalarProperty Name="NomEquipo" ParameterName="NomEquipo" Version="Current" />
+            <ScalarProperty Name="IdEquipo" ParameterName="IdEquipo" Version="Original" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="eSportsModel.Store.EliminarEquipo">
+            <ScalarProperty Name="IdEquipo" ParameterName="IDEQUIPO" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ActualizarEquipo" FunctionName="eSportsModel.Store.ActualizarEquipo" />
+    <FunctionImportMapping FunctionImportName="EliminarEquipo" FunctionName="eSportsModel.Store.EliminarEquipo" />
+    <FunctionImportMapping FunctionImportName="InsertarEquipo" FunctionName="eSportsModel.Store.InsertarEquipo" />
+  </EntityContainerMapping>
+</Mapping>
