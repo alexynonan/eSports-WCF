@@ -28,5 +28,9 @@ namespace WebWCF_eSports.Jugador
                 lblMensaje.Text = ex.Message;
             }
         }
+        protected void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WebJugadorPorEdad.aspx");
+        }
     }
 }

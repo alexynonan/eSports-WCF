@@ -454,6 +454,12 @@
       <Parameter Name="FechaIni" Mode="In" Type="DateTime" />
       <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
     </FunctionImport>
+    <FunctionImport Name="RankingEdadMenorJugador" ReturnType="Collection(eSportsModel.RankingEdadMenorJugador_Result)">
+      <Parameter Name="Filas" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_EdadJugador" ReturnType="Collection(eSportsModel.usp_EdadJugador_Result)">
+      <Parameter Name="Edad" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="usp_KillsEquipoPorPartida_Result">
     <Property Type="String" Name="Enfrentamiento" Nullable="false" MaxLength="87" />
@@ -490,5 +496,23 @@
     <Property Type="String" Name="OrgTorneo" Nullable="false" MaxLength="30" />
     <Property Type="String" Name="PaisTorneo" Nullable="false" MaxLength="30" />
     <Property Type="String" Name="LugarTorneo" Nullable="false" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="RankingEdadMenorJugador_Result">
+    <Property Type="Int32" Name="IdJugador" Nullable="false" />
+    <Property Type="String" Name="ApeJugador" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="NomJugador" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="NickJugador" Nullable="false" MaxLength="30" />
+    <Property Type="Int32" Name="EdadJugador" Nullable="true" />
+    <Property Type="String" Name="PaisJugador" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="CapJugador" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="RolJugador" Nullable="false" MaxLength="15" />
+    <Property Type="Int32" Name="IdEquipo" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_EdadJugador_Result">
+    <Property Type="String" Name="ApeJugador" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="NomJugador" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="NickJugador" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="PaisJugador" Nullable="false" MaxLength="30" />
+    <Property Type="Int32" Name="EdadJugador" Nullable="true" />
   </ComplexType>
 </Schema>

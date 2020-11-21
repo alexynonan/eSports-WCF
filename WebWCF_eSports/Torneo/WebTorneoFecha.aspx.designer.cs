@@ -42,6 +42,15 @@ namespace WebWCF_eSports.Torneo
         protected global::AjaxControlToolkit.CalendarExtender txtFecIni_CalendarExtender;
 
         /// <summary>
+        /// Control btnConsultar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnConsultar;
+
+        /// <summary>
         /// Control Label2.
         /// </summary>
         /// <remarks>
@@ -69,13 +78,13 @@ namespace WebWCF_eSports.Torneo
         protected global::AjaxControlToolkit.CalendarExtender txtFecFin_CalendarExtender;
 
         /// <summary>
-        /// Control btnConsultar.
+        /// Control btnSiguiente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnConsultar;
+        protected global::System.Web.UI.WebControls.Button btnSiguiente;
 
         /// <summary>
         /// Control lblMensaje.

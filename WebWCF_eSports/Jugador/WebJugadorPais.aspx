@@ -4,12 +4,23 @@
     .auto-style1 {
         width: 100%;
     }
-</style>
+        .auto-style2 {
+            width: 198px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table class="auto-style1">
     <tr>
+        <td class="auto-style2">
+            Test Web Jugador Pais</td>
         <td>
+            &nbsp;</td>
+        <td>
+            &nbsp;</td>
+    </tr>
+    <tr>
+        <td class="auto-style2">
             <asp:Label ID="Label1" runat="server" Text="País"></asp:Label>
         </td>
         <td>
@@ -22,11 +33,13 @@
         </td>
     </tr>
     <tr>
-        <td>
+        <td class="auto-style2">
             <asp:Label ID="lblMensaje" runat="server"></asp:Label>
         </td>
         <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td>
+            <asp:Button ID="btnSiguiente" runat="server" OnClick="btnSiguiente_Click" Text="Siguiente" />
+        </td>
     </tr>
     <tr>
         <td colspan="3">
@@ -46,7 +59,7 @@
         </td>
     </tr>
     <tr>
-        <td>&nbsp;</td>
+        <td class="auto-style2">&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
     </tr>

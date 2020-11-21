@@ -93,5 +93,23 @@ namespace WCF_eSports
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ConsultarFechaTorneo_Result>("ConsultarFechaTorneo", fechaIniParameter, fechaFinParameter);
         }
+    
+        public virtual ObjectResult<RankingEdadMenorJugador_Result> RankingEdadMenorJugador(Nullable<int> filas)
+        {
+            var filasParameter = filas.HasValue ?
+                new ObjectParameter("Filas", filas) :
+                new ObjectParameter("Filas", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RankingEdadMenorJugador_Result>("RankingEdadMenorJugador", filasParameter);
+        }
+    
+        public virtual ObjectResult<usp_EdadJugador_Result> usp_EdadJugador(Nullable<int> edad)
+        {
+            var edadParameter = edad.HasValue ?
+                new ObjectParameter("Edad", edad) :
+                new ObjectParameter("Edad", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_EdadJugador_Result>("usp_EdadJugador", edadParameter);
+        }
     }
 }

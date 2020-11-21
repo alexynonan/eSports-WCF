@@ -17,6 +17,9 @@ namespace WCF_eSports
         [OperationContract]
         List<JugadorBE> ListarPaisJugadores(String pais);
 
+        [OperationContract]
+        List<JugadorBE> ListarJugadoresPorEdad(Int16 edad);
+
     }
 
     [DataContract]
@@ -72,6 +75,7 @@ namespace WCF_eSports
         private String mvarApe_Jugador;
         private String mvarNom_Jugador;
         private String mvarNick_Jugador;
+        private Int16 mvarEdadJugador;
         private String mvarPais_Jugador;
         private String mvarRol_Jugador;
         private String mvarNom_Equipo;
@@ -98,6 +102,12 @@ namespace WCF_eSports
         {
             get { return mvarPais_Jugador; }
             set { mvarPais_Jugador = value; }
+        }
+        [DataMember]
+        public Int16 Edad
+        {
+            get { return mvarEdadJugador; }
+            set { mvarEdadJugador = value; }
         }
         [DataMember]
         public String Rol

@@ -75,5 +75,32 @@ namespace WCF_eSports
                 throw new Exception(ex.Message);
             }
         }
+
+        public List<JugadorBE> ListarJugadoresPorEdad(Int16 edad)
+        {
+            try
+            {
+                eSportsEntities entity = new eSportsEntities();
+                List<JugadorBE> objLista = new List<JugadorBE>();
+                var query = entity.usp_EdadJugador(edad);
+            
+                foreach (var item in query)
+                {
+                    JugadorBE objItem = new JugadorBE();
+                    objItem.Apellido = item.ApeJugador;
+                    objItem.Nombre = item.NomJugador;
+                    objItem.NickName = item.NickJugador;
+                    objItem.Pais = item.PaisJugador;
+                    objItem.Edad = Convert.ToInt16(item.EdadJugador);
+
+                    objLista.Add(objItem);
+                }
+                return objLista;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

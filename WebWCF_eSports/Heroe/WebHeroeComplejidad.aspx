@@ -30,7 +30,9 @@
             <asp:Label ID="lblMensaje" runat="server"></asp:Label>
         </td>
         <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td>
+            <asp:Button ID="btnSiguiente" runat="server" OnClick="btnSiguiente_Click" Text="Siguiente" />
+        </td>
     </tr>
     <tr>
         <td colspan="3">

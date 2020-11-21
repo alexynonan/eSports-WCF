@@ -209,5 +209,16 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_EdadJugador" FunctionName="eSportsModel.Store.usp_EdadJugador">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="eSportsModel.usp_EdadJugador_Result">
+          <ScalarProperty Name="ApeJugador" ColumnName="ApeJugador" />
+          <ScalarProperty Name="NomJugador" ColumnName="NomJugador" />
+          <ScalarProperty Name="NickJugador" ColumnName="NickJugador" />
+          <ScalarProperty Name="PaisJugador" ColumnName="PaisJugador" />
+          <ScalarProperty Name="EdadJugador" ColumnName="EdadJugador" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

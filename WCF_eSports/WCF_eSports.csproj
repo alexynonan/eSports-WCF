@@ -115,12 +115,18 @@
     <Compile Include="PUESTO_PRIZEPOOL.cs">
       <DependentUpon>eSports.tt</DependentUpon>
     </Compile>
+    <Compile Include="RankingEdadMenorJugador_Result.cs">
+      <DependentUpon>eSports.tt</DependentUpon>
+    </Compile>
     <Compile Include="Service1.cs" />
     <Compile Include="ServicioEquipo.cs" />
     <Compile Include="ServicioHeroe.cs" />
     <Compile Include="ServicioJugador.cs" />
     <Compile Include="ServicioTorneo.cs" />
     <Compile Include="TORNEO.cs">
+      <DependentUpon>eSports.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_EdadJugador_Result.cs">
       <DependentUpon>eSports.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_KillsEquipoPorPartida_Result.cs">

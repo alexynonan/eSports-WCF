@@ -351,6 +351,9 @@ advertencia 6002: La tabla o vista 'eSports.dbo.vw_RankingKillsPorPartida' no ti
   <Function Name="ListarJugadorPorPais" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="pais" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="usp_EdadJugador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Edad" Type="int" Mode="In" />
+  </Function>
   <Function Name="usp_KillsEquipoPorPartida" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="partida" Type="int" Mode="In" />
   </Function>

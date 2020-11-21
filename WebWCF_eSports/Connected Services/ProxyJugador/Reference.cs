@@ -151,6 +151,9 @@ namespace WebWCF_eSports.ProxyJugador {
         private string ApellidoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private short EdadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EquipoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -184,6 +187,19 @@ namespace WebWCF_eSports.ProxyJugador {
                 if ((object.ReferenceEquals(this.ApellidoField, value) != true)) {
                     this.ApellidoField = value;
                     this.RaisePropertyChanged("Apellido");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public short Edad {
+            get {
+                return this.EdadField;
+            }
+            set {
+                if ((this.EdadField.Equals(value) != true)) {
+                    this.EdadField = value;
+                    this.RaisePropertyChanged("Edad");
                 }
             }
         }
@@ -278,6 +294,12 @@ namespace WebWCF_eSports.ProxyJugador {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugador/ListarPaisJugadores", ReplyAction="http://tempuri.org/IServicioJugador/ListarPaisJugadoresResponse")]
         System.Threading.Tasks.Task<WebWCF_eSports.ProxyJugador.JugadorBE[]> ListarPaisJugadoresAsync(string pais);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugador/ListarJugadoresPorEdad", ReplyAction="http://tempuri.org/IServicioJugador/ListarJugadoresPorEdadResponse")]
+        WebWCF_eSports.ProxyJugador.JugadorBE[] ListarJugadoresPorEdad(short edad);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugador/ListarJugadoresPorEdad", ReplyAction="http://tempuri.org/IServicioJugador/ListarJugadoresPorEdadResponse")]
+        System.Threading.Tasks.Task<WebWCF_eSports.ProxyJugador.JugadorBE[]> ListarJugadoresPorEdadAsync(short edad);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -321,6 +343,14 @@ namespace WebWCF_eSports.ProxyJugador {
         
         public System.Threading.Tasks.Task<WebWCF_eSports.ProxyJugador.JugadorBE[]> ListarPaisJugadoresAsync(string pais) {
             return base.Channel.ListarPaisJugadoresAsync(pais);
+        }
+        
+        public WebWCF_eSports.ProxyJugador.JugadorBE[] ListarJugadoresPorEdad(short edad) {
+            return base.Channel.ListarJugadoresPorEdad(edad);
+        }
+        
+        public System.Threading.Tasks.Task<WebWCF_eSports.ProxyJugador.JugadorBE[]> ListarJugadoresPorEdadAsync(short edad) {
+            return base.Channel.ListarJugadoresPorEdadAsync(edad);
         }
     }
 }

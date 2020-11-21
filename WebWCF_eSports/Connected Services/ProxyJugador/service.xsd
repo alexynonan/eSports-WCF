@@ -29,4 +29,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ListarJugadoresPorEdad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="edad" type="xs:short" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarJugadoresPorEdadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCF_eSports" minOccurs="0" name="ListarJugadoresPorEdadResult" nillable="true" type="q3:ArrayOfJugadorBE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

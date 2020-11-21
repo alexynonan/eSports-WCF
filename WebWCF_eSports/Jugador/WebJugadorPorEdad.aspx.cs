@@ -5,11 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebWCF_eSports.Torneo
+namespace WebWCF_eSports.Jugador
 {
-    public partial class WebTorneoFecha : System.Web.UI.Page
+    public partial class WebJugadorPorEdad : System.Web.UI.Page
     {
-        ProxyTorneo.ServicioTorneoClient objTorneo = new ProxyTorneo.ServicioTorneoClient();
+        ProxyJugador.ServicioJugadorClient objJugador = new ProxyJugador.ServicioJugadorClient();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -19,15 +19,8 @@ namespace WebWCF_eSports.Torneo
         {
             try
             {
-                DateTime fi, ff;
-                fi = Convert.ToDateTime(txtFecIni.Text);
-                ff = Convert.ToDateTime(txtFecFin.Text);
-
-                grvDatos.DataSource = objTorneo.FechaTorneo(fi, ff);
+                grvDatos.DataSource = objJugador.ListarJugadoresPorEdad(Convert.ToInt16(txtEdad.Text));
                 grvDatos.DataBind();
-
-                lblMensaje.Text = "Torneos Realizados Entre esas Fechas: " + grvDatos.Rows.Count.ToString();
-
 
             }
             catch (Exception ex)
@@ -35,9 +28,11 @@ namespace WebWCF_eSports.Torneo
                 lblMensaje.Text = ex.Message;
             }
         }
+
         protected void btnSiguiente_Click(object sender, EventArgs e)
         {
-            Response.Redirect("WebJugadorPorEdad.aspx");
+            Response.Redirect("../Torneo/WebTorneoFecha.aspx");
+
         }
     }
 }

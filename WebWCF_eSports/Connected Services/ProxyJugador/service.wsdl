@@ -19,6 +19,12 @@
   <wsdl:message name="IServicioJugador_ListarPaisJugadores_OutputMessage">
     <wsdl:part name="parameters" element="tns:ListarPaisJugadoresResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioJugador_ListarJugadoresPorEdad_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarJugadoresPorEdad" />
+  </wsdl:message>
+  <wsdl:message name="IServicioJugador_ListarJugadoresPorEdad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarJugadoresPorEdadResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioJugador">
     <wsdl:operation name="RankingJugador">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioJugador/RankingJugador" message="tns:IServicioJugador_RankingJugador_InputMessage" />
@@ -27,6 +33,10 @@
     <wsdl:operation name="ListarPaisJugadores">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioJugador/ListarPaisJugadores" message="tns:IServicioJugador_ListarPaisJugadores_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioJugador/ListarPaisJugadoresResponse" message="tns:IServicioJugador_ListarPaisJugadores_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarJugadoresPorEdad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioJugador/ListarJugadoresPorEdad" message="tns:IServicioJugador_ListarJugadoresPorEdad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioJugador/ListarJugadoresPorEdadResponse" message="tns:IServicioJugador_ListarJugadoresPorEdad_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicioJugador" type="tns:IServicioJugador">
@@ -42,6 +52,15 @@
     </wsdl:operation>
     <wsdl:operation name="ListarPaisJugadores">
       <soap:operation soapAction="http://tempuri.org/IServicioJugador/ListarPaisJugadores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarJugadoresPorEdad">
+      <soap:operation soapAction="http://tempuri.org/IServicioJugador/ListarJugadoresPorEdad" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

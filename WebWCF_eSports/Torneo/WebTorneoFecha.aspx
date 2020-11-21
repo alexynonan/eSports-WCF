@@ -26,7 +26,9 @@
                 <ajaxToolkit:CalendarExtender ID="txtFecIni_CalendarExtender" runat="server" BehaviorID="TextBox1_CalendarExtender" TargetControlID="txtFecIni">
                 </ajaxToolkit:CalendarExtender>
             </td>
-            <td>&nbsp;</td>
+            <td>
+                <asp:Button ID="btnConsultar" runat="server" OnClick="btnConsultar_Click" Text="Consultar" />
+            </td>
         </tr>
         <tr>
             <td class="auto-style2">
@@ -38,7 +40,7 @@
                 </ajaxToolkit:CalendarExtender>
             </td>
             <td>
-                <asp:Button ID="btnConsultar" runat="server" OnClick="btnConsultar_Click" Text="Consultar" />
+                <asp:Button ID="btnSiguiente" runat="server" OnClick="btnSiguiente_Click" Text="Siguiente" />
             </td>
         </tr>
         <tr>
