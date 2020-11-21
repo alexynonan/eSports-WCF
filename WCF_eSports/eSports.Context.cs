@@ -111,5 +111,39 @@ namespace WCF_eSports
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_EdadJugador_Result>("usp_EdadJugador", edadParameter);
         }
+    
+        public virtual int ActualizarHeroe(Nullable<int> idHeroe, string nomHeroe, string atributo, string tipo, string complejidad)
+        {
+            var idHeroeParameter = idHeroe.HasValue ?
+                new ObjectParameter("IdHeroe", idHeroe) :
+                new ObjectParameter("IdHeroe", typeof(int));
+    
+            var nomHeroeParameter = nomHeroe != null ?
+                new ObjectParameter("NomHeroe", nomHeroe) :
+                new ObjectParameter("NomHeroe", typeof(string));
+    
+            var atributoParameter = atributo != null ?
+                new ObjectParameter("Atributo", atributo) :
+                new ObjectParameter("Atributo", typeof(string));
+    
+            var tipoParameter = tipo != null ?
+                new ObjectParameter("Tipo", tipo) :
+                new ObjectParameter("Tipo", typeof(string));
+    
+            var complejidadParameter = complejidad != null ?
+                new ObjectParameter("Complejidad", complejidad) :
+                new ObjectParameter("Complejidad", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizarHeroe", idHeroeParameter, nomHeroeParameter, atributoParameter, tipoParameter, complejidadParameter);
+        }
+    
+        public virtual int EliminarHeroe(Nullable<int> idHeroe)
+        {
+            var idHeroeParameter = idHeroe.HasValue ?
+                new ObjectParameter("IdHeroe", idHeroe) :
+                new ObjectParameter("IdHeroe", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EliminarHeroe", idHeroeParameter);
+        }
     }
 }

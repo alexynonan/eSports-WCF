@@ -220,5 +220,7 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ActualizarHeroe" FunctionName="eSportsModel.Store.ActualizarHeroe" />
+    <FunctionImportMapping FunctionImportName="EliminarHeroe" FunctionName="eSportsModel.Store.EliminarHeroe" />
   </EntityContainerMapping>
 </Mapping>

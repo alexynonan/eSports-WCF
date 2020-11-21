@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30413.136
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1259
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF_eSports", "WCF_eSports\WCF_eSports.csproj", "{9F989743-17EF-4760-A502-BD1A862F03B6}"
 EndProject
@@ -11,6 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebWCF_eSports", "WebWCF_eS
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMVC_eSport", "WebMVC_eSport\WebMVC_eSport.csproj", "{6DD6CD04-0384-4DBF-9861-9015C5D965E9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9F989743-17EF-4760-A502-BD1A862F03B6} = {9F989743-17EF-4760-A502-BD1A862F03B6}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

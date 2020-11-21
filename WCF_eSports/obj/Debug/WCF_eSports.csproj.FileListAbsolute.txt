@@ -34,3 +34,15 @@ C:\ISIL\6to\DA2\ProyectoPatrick\eSports-WCF\WCF_eSports\obj\Debug\WCF_eSports.cs
 C:\ISIL\6to\DA2\ProyectoPatrick\eSports-WCF\WCF_eSports\obj\Debug\WCF_eSports.csproj.CopyComplete
 C:\ISIL\6to\DA2\ProyectoPatrick\eSports-WCF\WCF_eSports\obj\Debug\WCF_eSports.dll
 C:\ISIL\6to\DA2\ProyectoPatrick\eSports-WCF\WCF_eSports\obj\Debug\WCF_eSports.pdb
+C:\Users\Mapsalud\Desktop\Proyecto LEON\NEW\eSports-WCF\WCF_eSports\bin\Debug\WCF_eSports.dll.config
+C:\Users\Mapsalud\Desktop\Proyecto LEON\NEW\eSports-WCF\WCF_eSports\bin\Debug\WCF_eSports.dll
+C:\Users\Mapsalud\Desktop\Proyecto LEON\NEW\eSports-WCF\WCF_eSports\bin\Debug\WCF_eSports.pdb
+C:\Users\Mapsalud\Desktop\Proyecto LEON\NEW\eSports-WCF\WCF_eSports\bin\Debug\EntityFramework.dll
+C:\Users\Mapsalud\Desktop\Proyecto LEON\NEW\eSports-WCF\WCF_eSports\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Mapsalud\Desktop\Proyecto LEON\NEW\eSports-WCF\WCF_eSports\bin\Debug\EntityFramework.xml
+C:\Users\Mapsalud\Desktop\Proyecto LEON\NEW\eSports-WCF\WCF_eSports\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Mapsalud\Desktop\Proyecto LEON\NEW\eSports-WCF\WCF_eSports\obj\Debug\WCF_eSports.csprojAssemblyReference.cache
+C:\Users\Mapsalud\Desktop\Proyecto LEON\NEW\eSports-WCF\WCF_eSports\obj\Debug\WCF_eSports.csproj.CoreCompileInputs.cache
+C:\Users\Mapsalud\Desktop\Proyecto LEON\NEW\eSports-WCF\WCF_eSports\obj\Debug\WCF_eSports.csproj.CopyComplete
+C:\Users\Mapsalud\Desktop\Proyecto LEON\NEW\eSports-WCF\WCF_eSports\obj\Debug\WCF_eSports.dll
+C:\Users\Mapsalud\Desktop\Proyecto LEON\NEW\eSports-WCF\WCF_eSports\obj\Debug\WCF_eSports.pdb

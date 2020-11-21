@@ -13,6 +13,12 @@ namespace WCF_eSports
     {
         [OperationContract]
         List<HeroeBE> HeroeComplejidad(String complejidad);
+        [OperationContract]
+        List<HeroeBE> ListarHerores();
+        [OperationContract]
+        Boolean HeroeUpdate(HeroeBE objHeroe);
+        [OperationContract]
+        Boolean HeroeDelete(int id);
     }
 
     [DataContract]

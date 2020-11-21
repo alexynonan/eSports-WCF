@@ -460,6 +460,16 @@
     <FunctionImport Name="usp_EdadJugador" ReturnType="Collection(eSportsModel.usp_EdadJugador_Result)">
       <Parameter Name="Edad" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="ActualizarHeroe">
+      <Parameter Name="IdHeroe" Mode="In" Type="Int32" />
+      <Parameter Name="NomHeroe" Mode="In" Type="String" />
+      <Parameter Name="Atributo" Mode="In" Type="String" />
+      <Parameter Name="Tipo" Mode="In" Type="String" />
+      <Parameter Name="Complejidad" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="EliminarHeroe">
+      <Parameter Name="IdHeroe" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="usp_KillsEquipoPorPartida_Result">
     <Property Type="String" Name="Enfrentamiento" Nullable="false" MaxLength="87" />

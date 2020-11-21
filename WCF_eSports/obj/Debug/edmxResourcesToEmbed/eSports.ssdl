@@ -341,12 +341,22 @@ advertencia 6002: La tabla o vista 'eSports.dbo.vw_RankingKillsPorPartida' no ti
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="ActualizarHeroe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdHeroe" Type="int" Mode="In" />
+    <Parameter Name="NomHeroe" Type="varchar" Mode="In" />
+    <Parameter Name="Atributo" Type="varchar" Mode="In" />
+    <Parameter Name="Tipo" Type="varchar" Mode="In" />
+    <Parameter Name="Complejidad" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="ConsultarFechaTorneo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="FechaIni" Type="datetime" Mode="In" />
     <Parameter Name="FechaFin" Type="datetime" Mode="In" />
   </Function>
   <Function Name="ConsultarHeroeComplejidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Complejidad" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="EliminarHeroe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdHeroe" Type="int" Mode="In" />
   </Function>
   <Function Name="ListarJugadorPorPais" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="pais" Type="varchar" Mode="In" />
